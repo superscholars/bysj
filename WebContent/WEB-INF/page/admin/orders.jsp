@@ -152,6 +152,6 @@
 	        });
 	    });
 	</script>
-	<%@ include file="../inc/user/footer.jsp" %>
+	<%@ include file="../inc/admin/footer.jsp" %>
 </body>
 </html>

@@ -12,7 +12,7 @@
 		<property name="merchantName" column="merchant_name" type="java.lang.String"/>
 		<property name="userId" column="user_id" type="java.lang.Long"/>
 		<property name="userName" column="user_name" type="java.lang.String"/>
-		<property name="punishReason" column="punish_reason" type="java.lang.Sring"/>
+		<property name="punishReason" column="punish_reason" type="java.lang.String"/>
 		<property name="punishDays" column="punish_days" type="java.lang.Integer"/>
 		<property name="createTime" column="create_time" type="java.util.Date"/>
 	</class>

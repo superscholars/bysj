@@ -593,12 +593,14 @@ public class OrderService {
 			return "订单不存在。";
 		}
 		Complaint complaint = new Complaint();
+		complaint.setOrderId(orderId);
 		complaint.setContent(content);
 		complaint.setCreateTime(new Date());
 		complaint.setMerchantId(order.getMerchantId());
 		complaint.setMerchantName(order.getMerchantName());
 		complaint.setUserId(loginContext.getId());
 		complaint.setUserName(loginContext.getNickName());
+		complaintDao.saveComplaint(complaint);
 		return null;
 	}
 

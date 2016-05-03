@@ -28,7 +28,7 @@
 		<ul class="nav navbar-nav ">
 			<li id="order"><a href="${ctx}/admin/admin_goHome.action">订单中心</a></li>
 			<li id="check"><a href="${ctx}/admin/operate_checkMerchant.action">审核商户</a></li>
-			<li id="order"><a href="${ctx}/admin/admin_goHome.action">投诉中心</a></li>
+			<li id="complaint"><a href="${ctx}/admin/operate_complaint.action">投诉中心</a></li>
 			<li id="order"><a href="${ctx}/admin/admin_goHome.action">禁闭商户</a></li>
 			<li id="order"><a href="${ctx}/admin/admin_goHome.action">屏蔽用户</a></li>
 			<c:if test="${loginContext.adminFlag eq 1}">
@@ -45,8 +45,8 @@
 		if($(".sr-only").html()=="check"){
 			$("#check").addClass("active");
 		}
-		if($(".sr-only").html()=="order"){
-			$("#order").addClass("active");
+		if($(".sr-only").html()=="complaint"){
+			$("#complaint").addClass("active");
 		}
 		if($(".sr-only").html()=="person"){
 			$("#person").addClass("active");

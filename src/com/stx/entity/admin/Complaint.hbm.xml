@@ -9,9 +9,10 @@
 			<generator class="native" />
 		</id>
 		<property name="userId" column="user_id" type="java.lang.Long"/>
-		<property name="userName" column="user_name" type="java.String.String"/>
+		<property name="userName" column="user_name" type="java.lang.String"/>
 		<property name="merchantId" column="merchant_id" type="java.lang.Long"/>
 		<property name="merchantName" column="merchant_name" type="java.lang.String"/>
+		<property name="orderId" column="order_id" type="java.lang.Long"/>
 		<property name="content" column="content" type="java.lang.String"/>
 		<property name="createTime" column="create_time" type="java.util.Date"/>
 	</class>

@@ -38,6 +38,11 @@ public class Complaint implements Serializable{
 	private String merchantName;
 	
 	/**
+	 * 投诉的订单id
+	 */
+	private Long orderId;
+	
+	/**
 	 * 投诉内容
 	 */
 	private String content;
@@ -87,6 +92,14 @@ public class Complaint implements Serializable{
 		this.merchantName = merchantName;
 	}
 
+	public Long getOrderId() {
+		return orderId;
+	}
+
+	public void setOrderId(Long orderId) {
+		this.orderId = orderId;
+	}
+
 	public String getContent() {
 		return content;
 	}
@@ -107,8 +120,8 @@ public class Complaint implements Serializable{
 	public String toString() {
 		return "Complaint [id=" + id + ", userId=" + userId + ", userName="
 				+ userName + ", merchantId=" + merchantId + ", merchantName="
-				+ merchantName + ", content=" + content + ", createTime="
-				+ createTime + "]";
+				+ merchantName + ", orderId=" + orderId + ", content="
+				+ content + ", createTime=" + createTime + "]";
 	}
-	
+
 }

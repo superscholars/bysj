@@ -7,7 +7,7 @@
 <html>
 	<head>
 		<meta charset="utf-8" />
-		<title></title>
+		<title>>随便美餐-管理后台</title>
 	</head>
 	<body>
 	<%@ include file="../inc/admin/top.jsp" %>
@@ -35,8 +35,6 @@
 				   </div>
 				</div>
 				
-				
-				
 				<div class="panel panel-primary">
 				   <div class="panel-heading">
 				      <h3 class="panel-title">配送信息</h3>
@@ -46,8 +44,6 @@
 				      <tr><td>配送地址</td><td>${detailVo.order.userAddr}</td></tr>
 				   </table>
 				</div>
-				
-				
 				
 				<div class="panel panel-primary">
 				   <div class="panel-heading">
@@ -72,14 +68,6 @@
 				   </table>
 				</div>
 				
-			</div>
-			
-			<div class="row">
-				<div>
-					<div class="col-md-1 col-md-push-9">
-						<a class="form-control  btn btn-default" href="${ctx}/admin/admin_goHome.action">返回</a>
-					</div>
-				</div>
 			</div>
 			
 		</div>

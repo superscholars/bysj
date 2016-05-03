@@ -33,6 +33,11 @@ public class Punish implements Serializable{
 	private Long userId;
 	
 	/**
+	 * 操作人名称
+	 */
+	private String userName;
+	
+	/**
 	 * 处罚原因
 	 */
 	private String punishReason;
@@ -78,6 +83,14 @@ public class Punish implements Serializable{
 	public void setUserId(Long userId) {
 		this.userId = userId;
 	}
+	
+	public String getUserName() {
+		return userName;
+	}
+
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
 
 	public String getPunishReason() {
 		return punishReason;
@@ -107,8 +120,9 @@ public class Punish implements Serializable{
 	public String toString() {
 		return "Punish [id=" + id + ", merchantId=" + merchantId
 				+ ", merchantName=" + merchantName + ", userId=" + userId
-				+ ", punishReason=" + punishReason + ", punishDays="
-				+ punishDays + ", createTime=" + createTime + "]";
+				+ ", userName=" + userName + ", punishReason=" + punishReason
+				+ ", punishDays=" + punishDays + ", createTime=" + createTime
+				+ "]";
 	}
-	
+
 }

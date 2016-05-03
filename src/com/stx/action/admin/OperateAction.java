@@ -11,7 +11,9 @@ import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 import com.stx.entity.Constants;
 import com.stx.entity.User;
+import com.stx.entity.admin.Complaint;
 import com.stx.service.UserService;
+import com.stx.service.admin.ComplaintService;
 import com.stx.service.merchant.MerchantService;
 import com.stx.util.RequestUtils;
 
@@ -31,7 +33,10 @@ public class OperateAction extends ActionSupport implements ModelDriven<User>{
 	private UserService userService;
 	@Autowired
 	private MerchantService merchantService;
+	@Autowired
+	private ComplaintService complaintService;
 	
+	// ====================审核商户
 	/**
 	 * 审核商户
 	 * 
@@ -73,5 +78,22 @@ public class OperateAction extends ActionSupport implements ModelDriven<User>{
 		request.setAttribute("merchantList", merchantList);
 	}
 	
+	
+	//==================投诉中心
+	
+	/**
+	 * 进入投诉中心
+	 * 
+	 * @return
+	 */
+	public String complaint(){
+		HttpServletRequest request = ServletActionContext.getRequest();
+		request.setAttribute(Constants.PAGE, "complaint");
+		String startDateStr = request.getParameter("startDate");
+		String endDateStr = request.getParameter("endDate");
+		List<Complaint> complaints = complaintService.listComplaint(startDateStr, endDateStr);
+		request.setAttribute("complaintList", complaints);
+		return "complaint";
+	}
 
 }
