@@ -58,7 +58,7 @@ public class Constants {
 	public static final String GOU = "shoppingCar"; 
 	
 	/**
-	 * 订单状态 0.未支付。10.待接单。20.已接单，准备中。30.已备好。40.在路上。50.完成订单。60.取消订单
+	 * 订单状态 0.未支付。10.待接单。20.商家已接单，准备中。30.菜品已备好。40.在路上。50.完成订单。60.取消订单
 	 */
 	public static final int STATUS_NOTPAY = 0;
 	public static final int STATUS_WAITTING = 10;
@@ -73,8 +73,8 @@ public class Constants {
 	 */
 	public static final String STATUS_NAME_NOTPAY = "未支付";
 	public static final String STATUS_NAME_WAITTING = "待接单";
-	public static final String STATUS_NAME_READING = "已接单，准备中";
-	public static final String STATUS_NAME_OK = "已备好";
+	public static final String STATUS_NAME_READING = "商家已接单，准备中";
+	public static final String STATUS_NAME_OK = "菜品已备好";
 	public static final String STATUS_NAME_ON_WAY = "在路上";
 	public static final String STATUS_NAME_FINISH = "完成订单";
 	public static final String STATUS_NAME_CANCEL = "取消订单";

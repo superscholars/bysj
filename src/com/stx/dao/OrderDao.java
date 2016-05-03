@@ -1,13 +1,16 @@
 package com.stx.dao;
 
+import java.util.Date;
 import java.util.List;
 
 import org.hibernate.Session;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.stx.entity.User;
 import com.stx.entity.order.Order;
 import com.stx.util.CollectionUtils;
+import com.stx.util.StringUtils;
 
 /**
  * 操作订单表
@@ -121,6 +124,64 @@ public class OrderDao extends BaseDao{
 			return false;
 		} else {
 			return true;
+		}
+	}
+	
+	/**
+	 * 管理员查看订单列表
+	 * @param startDate
+	 * @param endDate
+	 * @param searchType
+	 * @param searchValue
+	 * @return
+	 */
+	@SuppressWarnings("unchecked")
+	@Transactional
+	public List<Order> adminSearch(Date startDate, Date endDate , String searchType ,String searchValue){
+		Session session = sessionFactory.getCurrentSession();
+		StringBuilder sb = new StringBuilder("FROM Order WHERE 1=1");
+		if(StringUtils.isNotEmpty(searchValue)&&!"0".equals(searchType)){
+			switch(searchType){
+			case "1":
+				sb.append(" AND orderNumber = '" + searchValue + "'");
+				List<Order> list = (List<Order>) session.createQuery(sb.toString()).setFirstResult(0).setMaxResults(50).list();
+				if (CollectionUtils.isNotEmpty(list)) {
+					return list;
+				} else {
+					return null;
+				}
+				
+			case "2":
+				sb.append(" AND userAddr like '%" + searchValue +"%'");
+				break;
+				
+			case "3":
+				sb.append(" AND merchantName = '" + searchValue + "'");
+				break;
+				
+			case "4":
+				String userHql = "FROM User WHERE loginName = :loginName";
+				List<User> users = (List<User>) session.createQuery(userHql).setParameter("loginName", searchValue).list();
+				if(CollectionUtils.isEmpty(users)){
+					return null;
+				}
+				sb.append(" AND userId = " + searchValue);
+				break;
+				
+			}
+		}
+		if(startDate != null){
+			sb.append(" AND createTime >= " +startDate);
+		}
+		if(endDate != null){
+			sb.append(" AND createTime <= " + endDate);
+		}
+		
+		List<Order> orderList = (List<Order>) session.createQuery(sb.toString()).list();
+		if(CollectionUtils.isEmpty(orderList)){
+			return null;
+		}else{
+			return orderList;
 		}
 	}
 	

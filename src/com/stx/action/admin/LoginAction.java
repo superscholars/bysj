@@ -1,6 +1,7 @@
 package com.stx.action.admin;
 
 import java.io.File;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -12,8 +13,11 @@ import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 import com.stx.entity.Constants;
 import com.stx.entity.User;
+import com.stx.entity.order.Order;
+import com.stx.entity.vo.OrderDetailVo;
 import com.stx.service.UserService;
 import com.stx.service.order.OrderService;
+import com.stx.util.RequestUtils;
 
 /**
  * 管理员登陆
@@ -147,7 +151,7 @@ public class LoginAction extends ActionSupport implements ModelDriven<User> {
 	 */
 	public String goHome() {
 		HttpServletRequest request = ServletActionContext.getRequest();
-		request.setAttribute(Constants.PAGE, "order");
+		addCondition(request);
 		return "home";
 	}
 
@@ -159,7 +163,6 @@ public class LoginAction extends ActionSupport implements ModelDriven<User> {
 	public String doLogin() {
 		HttpServletRequest request = ServletActionContext.getRequest();
 		User currentUser = userService.merchantLogin(user);
-		request.setAttribute(Constants.PAGE, "order");
 		if (currentUser == null) {
 			request.setAttribute("err", "用户名或密码错误。");
 			return "index";
@@ -175,8 +178,41 @@ public class LoginAction extends ActionSupport implements ModelDriven<User> {
 		/** 登陆成功的话，将用户信息放入session **/
 		ActionContext.getContext().getSession()
 				.put("loginContext", currentUser);
-		request.setAttribute(Constants.PAGE, "order");
+		addCondition(request);
 		return "home";
+	}
+	
+	/**
+	 * 配置跳转页面携带的参数
+	 * 
+	 * @param request
+	 */
+	private void addCondition(HttpServletRequest request){
+		request.setAttribute(Constants.PAGE, "order");
+		String startDateStr = request.getParameter("startDate");
+		String endDateStr = request.getParameter("endDate");
+		String searchType = request.getParameter("searchType");
+		String searchValue = request.getParameter("searchValue");
+		List<Order> orderList = orderService.adminSearchOrder(startDateStr, endDateStr, searchType, searchValue);
+		request.setAttribute("orderList", orderList);
+		request.setAttribute("startDate", startDateStr);
+		request.setAttribute("endDate", endDateStr);
+		request.setAttribute("searchType", searchType);
+		request.setAttribute("searchValue", searchValue);
+	}
+	
+	/**
+	 * 查看订单详情
+	 * 
+	 * @return
+	 */
+	public String orderDetail() {
+		HttpServletRequest request = ServletActionContext.getRequest();
+		request.setAttribute(Constants.PAGE, "order");
+		Long orderId = RequestUtils.getId(request);
+		OrderDetailVo detailVo = orderService.getOrderDetail(orderId);
+		request.setAttribute("detailVo", detailVo);
+		return "detail";
 	}
 	
 	/**

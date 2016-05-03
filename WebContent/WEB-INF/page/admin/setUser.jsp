@@ -11,7 +11,7 @@
 <meta charset="utf-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, maximum-scale=1.2, user-scalable=1">
-<title>随便美餐</title>
+<title>随便美餐-管理后台</title>
 </head>
 <body>
 	<div class="container">

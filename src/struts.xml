@@ -104,6 +104,7 @@
 		<action name="admin_*" class="adminLoginAction" method="{1}">
 			<result name="index">/WEB-INF/page/admin/login.jsp</result>
 			<result name="setting">/WEB-INF/page/admin/setUser.jsp</result>
+			<result name ="detail">/WEB-INF/page/admin/order-detail.jsp</result>
 		</action>
 		
 	</package>
