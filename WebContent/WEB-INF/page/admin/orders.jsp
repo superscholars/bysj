@@ -24,15 +24,36 @@
 			</div>
 		</c:if>
 		
-		<form role="form" action="">
-			<div class="form-group">
-		      <label class="col-sm-2 control-label">聚焦</label>
-		      <div class="col-sm-10">
-		         <input class="form-control" id="st" type="text" 
-		            value="该输入框获得焦点...">
-		      </div>
-		   </div>
-		</form>
+		<div class="row">
+	        <form class="form-inline" action="?" method="POST">
+	            <div class="form-group col-xs-2">
+	                <label class="control-label sr-only">起始日期</label>
+	                <div class="input-group date" id="st">
+	                    <input id="startDate" type="text" class="form-control"  date-format="yyyy-mm-dd" placeholder="起始日期" name="startDate" value="${startDate}" />
+	                    <span class="input-group-addon">
+	                        <span class="glyphicon glyphicon-calendar"></span>
+	                    </span>
+	                </div>
+	            </div>
+	            <div class="form-group col-xs-2">
+	                <label class="control-label sr-only">结束日期</label>
+	                <div class="input-group date" id="et">
+	                    <input id="endDate" type="text" class="form-control"  date-format="yyyy-mm-dd" placeholder="结束日期" name="endDate" value="${endDate}" />
+	                    <span class="input-group-addon">
+	                        <span class="glyphicon glyphicon-calendar"></span>
+	                    </span>
+	                </div>
+	            </div>
+	            
+	            <div class="input-group">
+			        <span class="input-group-addon">订单号码</span>
+			        <input type="text" class="form-control" placeholder="twitterhandle">
+			     </div>
+	            
+	            <button type="submit" class="btn btn-success">查询</button>
+	        </form>
+	    </div>
+	    <hr/>
 		
 		<table class="table table-responsive table-striped table-hover">
 		   <thead>
@@ -79,14 +100,14 @@
 	    $(function () {
 	        $('#st').datetimepicker({
 	            language: 'zh-CN',
-	            format: 'yyyy-MM-dd',
+	            format: 'yyyy-mm-dd',
 	            minView: 'month',
 	            todayBtn: true,
 	            autoclose: true
 	        });
 	        $('#et').datetimepicker({
 	            language: 'zh-CN',
-	            format: 'yyyy-MM-dd',
+	            format: 'yyyy-mm-dd',
 	            minView: 'month',
 	            todayBtn: true,
 	            autoclose: true

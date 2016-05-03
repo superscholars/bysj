@@ -9,7 +9,10 @@
 <link href="${ctx}/bootstrap/css/bootstrap.min.css"
 	rel="stylesheet">
 <link href="${ctx}/css/base.css" rel="stylesheet">
+<link href="${ctx}/bootstrap/css/bootstrap-datetimepicker.min.css" rel="stylesheet">
 <script src="${ctx}/jquery-2.2.2.min.js"></script>
 <script src="${ctx}/bootstrap/js/bootstrap.min.js"></script>
+<script src="${ctx}/bootstrap/js/bootstrap-datetimepicker.min.js"></script>
+<script src="${ctx}/bootstrap/js/bootstrap-datetimepicker.zh-CN.js"></script>
 </head>
 </html>
