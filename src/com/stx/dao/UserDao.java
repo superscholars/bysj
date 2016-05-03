@@ -111,4 +111,24 @@ public class UserDao extends BaseDao{
 		}
 	}
 	
+	/**
+	 * 根据登陆状态开关查询用户
+	 * 
+	 * @param loginSwitch
+	 * @return
+	 */
+	@SuppressWarnings("unchecked")
+	@Transactional
+	public List<User> findUserBySwitch(Integer loginSwitch) {
+		Session session = sessionFactory.getCurrentSession();
+		String hql = "FROM User WHERE loginSwitch = :loginSwitch ";
+		List<User> list = (List<User>) session.createQuery(hql)
+				.setParameter("loginSwitch", loginSwitch).list();
+		if (list != null && list.size() > 0) {
+			return list;
+		} else {
+			return null;
+		}
+	}
+	
 }

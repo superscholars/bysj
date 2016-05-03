@@ -274,6 +274,8 @@ public class LoginAction extends ActionSupport implements ModelDriven<User> {
 		if (reason != null) {
 			request.setAttribute("err", reason);
 			return "register";
+		}else{
+			request.setAttribute("success", "注册成功，联系管理员进行审核。");
 		}
 		return "index";
 	}

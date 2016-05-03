@@ -113,5 +113,9 @@
 	<bean id="adminLoginAction" class="com.stx.action.admin.LoginAction"
 	    scope="prototype">
 	</bean>
+	<!-- OperateAction -->
+	<bean id="adminOperateAction" class="com.stx.action.admin.OperateAction"
+	    scope="prototype">
+	</bean>
 </beans>
 	

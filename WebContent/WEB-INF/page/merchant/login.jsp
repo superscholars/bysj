@@ -27,6 +27,12 @@
 						&times; </a> ${err}
 				</div>
 			</c:if>
+			<c:if test="${!empty success}">
+				<div class="alert alert-success">
+					<a class="close" data-dismiss="alert" href="#" aria-hidden="true">
+						&times; </a> ${success}
+				</div>
+			</c:if>
 		</div>
 		
 		<span> 登陆</span>

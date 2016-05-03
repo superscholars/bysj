@@ -90,6 +90,17 @@ public class MerchantDao extends BaseDao{
 	}
 	
 	/**
+	 * 保存一个商户信息
+	 * @param merchant
+	 * @return
+	 */
+	@Transactional
+	public Long saveMerchant(Merchant merchant){
+		Session session = sessionFactory.getCurrentSession();
+		return (Long) session.save(merchant);
+	}
+	
+	/**
 	 * 查询单量多的商户
 	 * 
 	 * @return

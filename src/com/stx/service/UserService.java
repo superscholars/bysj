@@ -9,11 +9,13 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.Date;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.stx.dao.UserDao;
+import com.stx.entity.Constants;
 import com.stx.entity.User;
 
 /**
@@ -212,5 +214,26 @@ public class UserService {
 		}
 		return user.getHeadPath();
 	}
+	
+	// ======================管理员模块
+	
+	/**
+	 * 查出所有待审核的商户
+	 * @return
+	 */
+	public List<User> queryNotCheckMerchant(){
+		return userDao.findUserBySwitch(Constants.LOGIN_SWITCH_WAITING);
+	}
+	
+	/**
+	 * 变更状态
+	 * @param loginFLag
+	 */
+	public void changeUserLoginFlag(Long userId, Integer loginSwitch){
+		User user = userDao.findUserById(userId);
+		user.setLoginSwitch(loginSwitch);
+		userDao.updateUserInfo(user);
+	}
+	
 	
 }

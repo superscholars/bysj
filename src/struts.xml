@@ -107,6 +107,11 @@
 			<result name ="detail">/WEB-INF/page/admin/order-detail.jsp</result>
 		</action>
 		
+		<!-- adminOperate -->
+		<action name="operate_*" class="adminOperateAction" method="{1}">
+		    <result name="check">/WEB-INF/page/admin/check-merchant.jsp</result>
+		</action>
+		
 	</package>
 	
 </struts>

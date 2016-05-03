@@ -27,7 +27,7 @@
 		</ul>
 		<ul class="nav navbar-nav ">
 			<li id="order"><a href="${ctx}/admin/admin_goHome.action">订单中心</a></li>
-			<li id="order"><a href="${ctx}/admin/admin_goHome.action">审核商户</a></li>
+			<li id="check"><a href="${ctx}/admin/operate_checkMerchant.action">审核商户</a></li>
 			<li id="order"><a href="${ctx}/admin/admin_goHome.action">投诉中心</a></li>
 			<li id="order"><a href="${ctx}/admin/admin_goHome.action">禁闭商户</a></li>
 			<li id="order"><a href="${ctx}/admin/admin_goHome.action">屏蔽用户</a></li>
@@ -42,8 +42,8 @@
 		if($(".sr-only").html()=="home"){
 			$("#home").addClass("active");
 		}
-		if($(".sr-only").html()=="shopping"){
-			$("#shopping").addClass("active");
+		if($(".sr-only").html()=="check"){
+			$("#check").addClass("active");
 		}
 		if($(".sr-only").html()=="order"){
 			$("#order").addClass("active");

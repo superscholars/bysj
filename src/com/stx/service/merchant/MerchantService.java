@@ -174,4 +174,28 @@ public class MerchantService {
 		return null;
 	}
 	
+	/**
+	 * 生成一个默认的商户信息
+	 * @return
+	 */
+	public Long generateMerchant(Long userId){
+		Merchant merchant = new Merchant();
+		merchant.setBoxPrice(1f);
+		merchant.setCodFlag(2);
+		merchant.setDeliveryPrice(5f);
+		merchant.setDeliveryStart(10f);
+		merchant.setDeliveryTime(30);
+		merchant.setLogoAddr("logo.jpg");
+		merchant.setMerchantAddr("请输入商户地址");
+		merchant.setMerchantType("");
+		merchant.setMobile("请输入联系手机");
+		merchant.setMonthCount(0);
+		merchant.setName("请输入商户名称");
+		merchant.setOpenFlag(2);
+		merchant.setSlogen("请输入广告语");
+		merchant.setUserId(userId);
+		merchant.setWorkTime("请输入营业时间");
+		return merchantDao.saveMerchant(merchant);
+	}
+	
 }
