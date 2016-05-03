@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.stx.entity.order.GoodsInfo" table="order_goods_info" lazy="false">
+		<id name="id" column="id" type="java.lang.Long">
+			<generator class="native" />
+		</id>
+		<property name="orderId" column="order_id" type="java.lang.Long"/>
+		<property name="goodsId" column="goods_id" type="java.lang.Long"/>
+		<property name="goodsName" column="goods_name" type="java.lang.String"/>
+		<property name="goodsCount" column="goods_count" type="java.lang.Integer"/>
+		<property name="goodsPrice" column="goods_price" type="java.lang.Float"/>
+	</class>
+</hibernate-mapping>

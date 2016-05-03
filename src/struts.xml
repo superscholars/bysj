@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+	<!-- 开发模式 -->
+	<constant name="struts.multipart.maxSize" value="10485760" />
+	<!-- 商户模块 -->
+	<package name="merchant" extends="struts-default"
+		namespace="/merchant">
+
+	    <global-results>
+		    <result name="home">/WEB-INF/page/merchant/orders.jsp</result>
+		</global-results>
+	    
+		<!-- merchantLogin -->
+		<action name="merchant_*" class="merchantLoginAction" method="{1}">
+			<result name="index">/WEB-INF/page/merchant/login.jsp</result>
+			<result name="register">/WEB-INF/page/merchant/register.jsp</result>
+			<!-- <result name="home">/WEB-INF/page/merchant/orders.jsp</result> -->
+			<result name="setting">/WEB-INF/page/merchant/setUser.jsp</result>
+		</action>
+		
+		<!-- merchantInfo -->
+		<action name="merchantInfo_*" class="merchantInfoAction" method="{1}">
+		    <result name="index">/WEB-INF/page/merchant/merchant-info.jsp</result>
+		    <!-- <result name="home">/WEB-INF/page/merchant/order.jsp</result> -->
+		</action>
+		
+		<!-- goodsCategory -->
+		<action name="goodsCategory_*" class="goodsCategoryAction" method="{1}">
+		    <result name="index">/WEB-INF/page/merchant/categorys.jsp</result>
+		    <result name="addPage">/WEB-INF/page/merchant/category_add.jsp</result>
+		    <result name="editPage">/WEB-INF/page/merchant/category_edit.jsp</result>
+		</action>
+		
+		<!-- Goods -->
+		<action name="goods_*" class="merchantGoodsAction" method="{1}">
+		    <result name="index">/WEB-INF/page/merchant/goods.jsp</result>
+		    <result name="addPage">/WEB-INF/page/merchant/goods_add.jsp</result>
+		    <result name="editPage">/WEB-INF/page/merchant/goods_edit.jsp</result>
+		</action>
+		
+		<!-- Strategy -->
+		<action name="strategy_*" class="merchantStrategyAction" method="{1}">
+		    <result name="index">/WEB-INF/page/merchant/strategys.jsp</result>
+		    <result name="addPage">/WEB-INF/page/merchant/strategy_add.jsp</result>
+		    <result name="editPage">/WEB-INF/page/merchant/strategy_edit.jsp</result>
+		</action>
+		
+		<!-- Order -->
+		<action name="order_*" class="merchantOrderAction" method="{1}">
+		    <result name="index">/WEB-INF/page/merchant/orders.jsp</result>
+		    <result name="detail">/WEB-INF/page/merchant/order-detail.jsp</result>
+		</action>
+		
+	</package>	
+	
+	<package name="user" extends="struts-default"
+		namespace="/user">
+
+	    <global-results>
+		    <result name="home">/WEB-INF/page/user/index.jsp</result>
+		</global-results>
+	    
+		<!-- usersLogin -->
+		<action name="user_*" class="userLoginAction" method="{1}">
+			<result name="index">/WEB-INF/page/user/login.jsp</result>
+			<result name="register">/WEB-INF/page/user/register.jsp</result>
+			<result name="setting">/WEB-INF/page/user/setUser.jsp</result>
+			<result name="search">/WEB-INF/page/user/search_goods.jsp</result>
+			<result name="merchantType">/WEB-INF/page/user/merchant-category.jsp</result>
+			<result name="merchantMain">/WEB-INF/page/user/merchant-main.jsp</result>
+		</action>
+		
+		<!-- shoppingAction -->
+		<action name="shopping_*" class="shoppingAction" method="{1}">
+		    <result name="index">/WEB-INF/page/user/shop-car.jsp</result>
+		    <result name="placeOrder">/WEB-INF/page/user/pay-order.jsp</result>
+		</action>
+		<!-- personAction -->
+		<action name="person_*" class="personAction" method="{1}">
+		    <result name="index">/WEB-INF/page/user/person-center.jsp</result>
+		</action>
+		<!-- userOrderAction -->
+		<action name="order_*" class="userOrderAction" method="{1}">
+		    <result name="index">/WEB-INF/page/user/order-center.jsp</result>
+		    <result name="detail">/WEB-INF/page/user/order-detail.jsp</result>
+		    <result name="placeOrder">/WEB-INF/page/user/pay-order.jsp</result>
+		    <result name="comment">/WEB-INF/page/user/merchant-comment.jsp</result>
+		</action>
+		
+	</package>
+	
+	<package name="admin" extends="struts-default"
+		namespace="/admin">
+
+	    <global-results>
+		    <result name="home">/WEB-INF/page/admin/orders.jsp</result>
+		</global-results>
+	    
+		<!-- adminLogin -->
+		<action name="admin_*" class="adminLoginAction" method="{1}">
+			<result name="index">/WEB-INF/page/admin/login.jsp</result>
+			<result name="setting">/WEB-INF/page/admin/setUser.jsp</result>
+		</action>
+		
+	</package>
+	
+</struts>

@@ -1,0 +1,86 @@
+.shop-title{
+	display: block;
+	padding:10px 0px 0px 20px;
+	font-size: 24px;
+}
+
+.address{
+	width: 100%;
+	height: 150px;
+	padding: 20px;
+	font-size: 18px;
+}
+
+.address-content{
+	height: 80px;
+	border:2px dotted #777777;
+	border-radius: 15px;
+	padding: 10px;
+	margin-top: 10px;
+	margin-bottom: 20px;
+	padding-top: 20px;
+}
+
+.add-address{
+	text-align: right;
+	float: right;
+	margin-right: 10px;
+}
+
+.goods-list{
+	margin-top: 50px;
+	padding: 20px;
+}
+
+.merchant-name{
+	font-size: 18px;
+	padding-left: 5px;
+}
+
+.strategy{
+	float: right;
+	margin-right: 20px;
+	color: #bb1111;
+}
+
+
+.item-head{
+	height: 30px;
+	width: 100%;
+	border-top:2px solid #000000 ;
+	text-align: center;
+	padding-top: 5px;
+	background-color: #f3f3f3;
+}
+
+.goods-item{
+	border-top:2px dotted #777777 ;
+	height: 120px;
+	widows: 100%;
+	text-align: center;
+	background-color: #fff4e8;
+}
+
+.merchant-logo{
+	height: 90px;
+}
+
+.pic{
+	padding-top: 10px;
+}
+
+.wenzi{
+	padding-top: 45px;
+}
+
+.confirm-button{
+	padding-bottom: 60px;
+	padding-right: 60px;
+}
+
+.confirm{
+	float: right;
+}
+
+
+

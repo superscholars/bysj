@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.stx.entity.user.MerchantComment" table="merchant_comment" lazy="false">
+		<id name="id" column="id" type="java.lang.Long">
+			<generator class="native" />
+		</id>
+		<property name="merchantId" column="merchant_id" type="java.lang.Long"/>
+		<property name="createBy" column="create_by" type="java.lang.Long"/>
+		<property name="createName" column="create_name" type="java.lang.String"/>
+		<property name="commentContent" column="comment_content" type="java.lang.String"/>
+		<property name="createTime" column="create_time" type="java.util.Date"/>
+	</class>
+</hibernate-mapping>

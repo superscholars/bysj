@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.stx.entity.merchant.Strategy" table="merchant_strategy" lazy="false">
+		<id name="id" column="id" type="java.lang.Long">
+			<generator class="native" />
+		</id>
+		<property name="merchantId" column="merchant_id" type="java.lang.Long"/>
+		<property name="strategyType" column="strategy_type" type="java.lang.Integer"/>
+		<property name="premisePrice" column="premise_price" type="java.lang.Float"/>
+		<property name="balancePrice" column="balance_price" type="java.lang.Float"/>
+		<property name="discount" column="discount" type="java.lang.Integer"/>
+	</class>
+</hibernate-mapping>

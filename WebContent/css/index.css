@@ -1,0 +1,120 @@
+@CHARSET "UTF-8";
+
+body{
+	margin :0px;
+	padding:0px;
+	font-family: "微软雅黑"
+}
+
+ul { 
+    margin:0;padding:0;/*这两句使之没有缩进和边距效果*/
+    list-style:none;/*这句使之没有前面的小黑点*/
+}
+
+li a {
+	color:#ce0000;
+}
+
+a:link {
+	text-decoration: none;
+}
+a:visited {
+	text-decoration: none;
+}
+a:hover {
+	text-decoration: none;
+}
+a:active {
+	text-decoration: none;
+}
+		
+.category_search{
+	height:200px;
+}
+
+#search{
+	width:60%;
+	margin: 0 auto;
+	padding-top:20px;
+}
+
+.category-label{
+	margin:0 auto;
+	width:70%;
+	height:100%;
+}
+
+.shop{
+	height:900px;
+}
+
+.shop-list-item{
+	padding:5px 0px;
+	height:280px;
+}
+.item-title{
+	margin:0;
+	height:40px;
+	width: 100%;
+	border-top : 1px dashed #666;
+}
+
+.list-theme{
+	height:240px;
+	float:left;
+	padding:2%;
+	background-color: #ffffff;
+}
+
+.timu{
+	padding:10px 0px 0px 20px;
+	height:40px;
+	width:100px;
+	text-align: center;
+	font-size: 16px;
+}
+
+.merchant-name{
+	padding:3px;
+	font-size: 16px;
+}
+
+.merchant-address{
+	padding:3px;
+	font-size: 12px;
+}
+
+.merchant-balance{
+	padding:3px;
+	font-size: 12px;
+}
+.show{
+	height:800px;
+	width:75%;
+	float:left;
+}
+.hot{
+	height:800px;
+	width:22%;
+	float:right;
+	border-left: 1px solid #aaaaaa;
+}
+
+.hot-height{
+	width:60%;
+	margin:40px auto;
+	height:30%;
+}
+
+.hot-title{
+	text-align: center;
+	font-size: 18px;
+}
+
+.hot-content{
+	padding-top:20px;
+	line-height:1.8em;
+	text-align: center;
+	color: #ce0000;
+}
+

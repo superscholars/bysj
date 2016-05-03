@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.stx.entity.order.Order" table="w_order" lazy="false">
+		<id name="id" column="id" type="java.lang.Long">
+			<generator class="native" />
+		</id>
+		<property name="orderNumber" column="order_number" type="java.lang.String"/>
+		<property name="userId" column="user_id" type="java.lang.Long"/>
+		<property name="merchantId" column="merchant_id" type="java.lang.Long"/>
+		<property name="createTime" column="create_time" type="java.util.Date"/>
+		<property name="merchantName" column="merchant_name" type="java.lang.String"/>
+		<property name="userAddr" column="user_addr" type="java.lang.String"/>
+		<property name="status" column="status" type="java.lang.Integer"/>
+		<property name="payType" column="pay_type" type="java.lang.Integer"/>
+		<property name="eatType" column="eat_type" type="java.lang.Integer"/>
+		<property name="deliveryTime" column="delivery_time" type="java.lang.Integer"/>
+		<property name="finishTime" column="finish_time" type="java.util.Date"/>
+	</class>
+</hibernate-mapping>

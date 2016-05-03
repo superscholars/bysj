@@ -1,0 +1,50 @@
+.container{
+}
+
+.merchant-info{
+	height: 300px;
+	padding: 10px;
+}
+
+.suibianjiao{
+	width: 100%;
+	height: 100%;
+	border: 1px solid #777777;
+	box-shadow: 5px 5px 5px #888888;
+}
+
+.pic{
+	height: 60%;
+	width: 100%;
+}
+
+.info{
+	height: 40%;
+	width: 100%;
+}
+
+.merchant-logo{
+	width: 100%;
+	height: 100%;
+}
+
+.merchant-name{
+	font-size: 22px;
+	text-align: center;
+}
+.slogen{
+	text-align: center;
+}
+
+.detail{
+	position: absolute;
+	bottom: 20px;
+	right: 25px;
+}
+
+.paging{
+	text-align: center;
+}
+
+
+

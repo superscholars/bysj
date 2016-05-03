@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.stx.entity.order.OrderProcess" table="order_process" lazy="false">
+		<id name="id" column="id" type="java.lang.Long">
+			<generator class="native" />
+		</id>
+		<property name="orderId" column="order_id" type="java.lang.Long"/>
+		<property name="processTime" column="process_time" type="java.util.Date"/>
+		<property name="orderStatus" column="order_status" type="java.lang.Integer"/>
+		<property name="processStatus" column="process_status" type="java.lang.String"/>
+		<property name="processDesc" column="process_desc" type="java.lang.String"/>
+	</class>
+</hibernate-mapping>

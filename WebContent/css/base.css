@@ -1,0 +1,17 @@
+@CHARSET "UTF-8";
+
+.container {
+	padding: 60px;
+}
+
+.navbar-brand {
+	font-family: "Microsoft YaHei";
+}
+
+#watch {
+	width: 160px;
+	height: 50px;
+	position: fixed;
+	bottom: 0;
+	right: 0;
+}

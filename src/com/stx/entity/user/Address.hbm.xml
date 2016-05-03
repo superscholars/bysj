@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.stx.entity.user.Address" table="address" lazy="false">
+		<id name="id" column="id" type="java.lang.Long">
+			<generator class="native" />
+		</id>
+		<property name="userId" column="user_id" type="java.lang.Long"/>
+		<property name="realName" column="real_name" type="java.lang.String"/>
+		<property name="mobile" column="mobile" type="java.lang.String"/>
+		<property name="sex" column="sex" type="java.lang.String"/>
+		<property name="addressAttr" column="address_attr" type="java.lang.String"/>
+		<property name="houseNumber" column="house_number" type="java.lang.String"/>
+		<property name="status" column="status" type="java.lang.Integer"/>
+	</class>
+</hibernate-mapping>

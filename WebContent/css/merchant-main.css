@@ -1,0 +1,162 @@
+﻿body{
+	margin: 0px;
+	padding: 0px;
+	font-family: "微软雅黑";
+}
+
+.container{
+	margin: 0 auto;
+	width: 80%;
+	margin-top: -600px;
+}
+
+.show-merchant{
+	width: 100%;
+	height: 400px;
+	color: black;
+	background-color:rgba(255,254,254,0.8);
+}
+
+.show-table{
+	width: 50%;
+	height: 100%;
+	float:left;
+	/*border-right: 1px dotted #cccccc;*/
+}
+
+.merchant-logo{
+	display: block;
+	width: 220px;
+	height: 220px;
+	margin: 0 auto;
+	margin-top: 20px;
+	border-radius: 50%;
+}
+
+.name-slogen{
+	width: 100%;
+	height:160px;
+	text-align: center;
+}
+
+.slogen{
+	margin-bottom:10px;
+}
+
+.name{
+	padding: 20px;
+	font-size: 30px;
+}
+
+.detail{
+	width: 50%;
+	height: 100%;
+	float: left;
+}
+
+.about{
+	width: 100%;
+	height: 35%;
+	margin-top: 40px;
+	border-bottom: 1px dotted #FFFFFF;
+}
+
+.address{
+	width: 80%;
+	margin: 0 auto;
+	font-size: 20px;
+	padding: 10px;
+}
+
+.mobile{
+	width: 80%;
+	margin: 0 auto;
+	font-size: 20px;
+	padding: 10px;
+}
+
+.charge{
+	width: 100%;
+	height: auto;
+}
+
+.feiyong{
+	width: 80%;
+	margin: 0 auto;
+	font-size: 18px;
+	line-height: 1.5em;
+	padding-top: 20px;
+}
+
+.goods-title{
+	padding:10px 0px 0px 20px;
+	font-size: 24px;
+}
+
+.strategy{
+	float: right;
+	margin-top: 10px;
+	margin-right: 20px;
+	color: #bb1111;
+}
+
+.goods-list{
+	padding: 20px;
+	width: 100%;
+	background-color: white;
+}
+
+.list-item{
+	padding: 10px;
+	border-bottom: 1px dotted #777777;
+}
+
+.duiqi{
+	height: 30px;
+	margin-top: 50px;
+	font-size:20px ;
+}
+
+.comment-list{
+	padding: 20px;
+}
+
+.comment-item{
+	height: 160px;
+	padding: 15px;
+	border-bottom: 1px dotted #777777;
+}
+
+.touxiang{
+	display: block;
+	text-align: center;
+	width: 80px;
+	height: 80px;
+	margin: 0 auto;
+	border-radius: 50%;
+}
+
+.nicheng{
+	text-align: center;
+	margin-top: 10px;
+}
+
+.wen-zhang{
+}
+
+.comment-content{
+	height: 118px;
+	width: 100%;
+	border:1px solid palevioletred;
+	border-radius: 15px;
+	padding: 20px;
+	text-indent:2em ;
+}
+
+
+
+
+
+
+
+

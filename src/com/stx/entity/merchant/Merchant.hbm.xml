@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.stx.entity.merchant.Merchant" table="merchants" lazy="false">
+		<id name="id" column="id" type="java.lang.Long">
+			<generator class="native" />
+		</id>
+		<property name="userId" column="user_id" type="java.lang.Long" />
+		<property name="logoAddr" column="logo_addr" type="java.lang.String" />
+		<property name="mobile" column="mobile" type="java.lang.String"/>
+		<property name="name" column="name" type="java.lang.String"/>
+		<property name="merchantAddr" column="merchant_addr" type="java.lang.String"/>
+		<property name="merchantType" column="merchant_type" type="java.lang.String"/>
+		<property name="slogen" column="slogen" type="java.lang.String"/>
+		<property name="monthCount" column="month_count" type="java.lang.Integer"/>
+		<property name="deliveryStart" column="delivery_start" type="java.lang.Float"/>
+		<property name="deliveryPrice" column="delivery_price" type="java.lang.Float"/>
+		<property name="boxPrice" column="box_price" type="java.lang.Float"/>
+		<property name="deliveryTime" column="delivery_time" type="java.lang.Integer"/>
+		<property name="workTime" column="work_time" type="java.lang.String"/>
+		<property name="codFlag" column="cod_flag" type="java.lang.Integer"/>
+		<property name="openFlag" column="open_flag" type="java.lang.Integer"/>
+	</class>
+</hibernate-mapping>

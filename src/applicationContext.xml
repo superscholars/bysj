@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+     http://www.springframework.org/schema/beans/spring-beans-4.2.xsd 
+     http://www.springframework.org/schema/context 
+     http://www.springframework.org/schema/context/spring-context-4.2.xsd
+     http://www.springframework.org/schema/aop 
+     http://www.springframework.org/schema/aop/spring-aop-4.2.xsd
+     http://www.springframework.org/schema/tx 
+     http://www.springframework.org/schema/tx/spring-tx-4.2.xsd">
+
+	<!-- 配置扫描 =================================================================== -->
+	<context:component-scan base-package="com.stx" />
+
+	<!-- 配置连接池================================================================== -->
+
+	<!-- 引入外部属性文件 -->
+	<context:property-placeholder location="classpath:jdbc.properties" />
+	<!-- 配置C3P0连接池: -->
+	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+		<property name="driverClass" value="${jdbc.driver}" />
+		<property name="jdbcUrl" value="${jdbc.url}" />
+		<property name="user" value="${jdbc.user}" />
+		<property name="password" value="${jdbc.password}" />
+	</bean>
+
+	<!-- Hibernate的相关信息=========================================================== -->
+
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
+		<!-- 注入连接池 -->
+		<property name="dataSource" ref="dataSource" />
+		<!-- 配置Hibernate的其他的属性 -->
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">org.hibernate.dialect.MySQL57InnoDBDialect</prop>
+				<prop key="hibernate.show_sql">true</prop>
+				<prop key="hibernate.format_sql">true</prop>
+				<prop key="hibernate.connection.autocommit">false</prop>
+				<prop key="hibernate.hbm2ddl.auto">update</prop>
+				<prop key="hibernate.temp.use_jdbc_metadata_defaults">false</prop>
+			</props>
+		</property>
+		<!-- 配置Hibernate的映射文件 -->
+		<property name="mappingResources">
+			<list>
+				<value>com/stx/entity/User.hbm.xml</value>
+				<value>com/stx/entity/merchant/Merchant.hbm.xml</value>
+				<value>com/stx/entity/merchant/MerchantType.hbm.xml</value>
+				<value>com/stx/entity/merchant/GoodsCategory.hbm.xml</value>
+				<value>com/stx/entity/merchant/Goods.hbm.xml</value>
+				<value>com/stx/entity/merchant/Strategy.hbm.xml</value>
+				
+				<value>com/stx/entity/order/Order.hbm.xml</value>
+				<value>com/stx/entity/order/GoodsInfo.hbm.xml</value>
+				<value>com/stx/entity/order/OrderProcess.hbm.xml</value>
+				<value>com/stx/entity/order/PriceInfo.hbm.xml</value>
+				
+				<value>com/stx/entity/user/Collection.hbm.xml</value>
+				<value>com/stx/entity/user/MerchantComment.hbm.xml</value>
+				<value>com/stx/entity/user/Address.hbm.xml</value>
+			</list>
+		</property>
+	</bean>
+
+	<!-- 事务管理====================================================================== -->
+
+	<bean id="transactionManager"
+		class="org.springframework.orm.hibernate5.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<!-- 开启注解事务 -->
+	<tx:annotation-driven transaction-manager="transactionManager" />
+
+	<!-- 装配Bean====================================================================== -->
+
+	<!-- MerchantAction -->
+	<bean id="merchantLoginAction" class="com.stx.action.merchant.LoginAction"
+		scope="prototype">
+	</bean>
+	<bean id="merchantInfoAction" class="com.stx.action.merchant.MerchantInfoAction"
+		scope="prototype">
+	</bean>
+	<bean id="goodsCategoryAction" class="com.stx.action.merchant.GoodsCategoryAction"
+		scope="prototype">
+	</bean>
+	<bean id="merchantGoodsAction" class="com.stx.action.merchant.GoodsAction"
+	    scope="prototype">
+	</bean>
+	<bean id="merchantStrategyAction" class="com.stx.action.merchant.StrategyAction"
+	    scope="prototype">
+	</bean>
+	<bean id="merchantOrderAction" class="com.stx.action.merchant.OrderAction"
+	    scope="prototype">
+	</bean>
+	<!-- UserAction -->
+	<bean id="userLoginAction" class="com.stx.action.user.LoginAction"
+	    scope="prototype">
+	</bean>
+	<bean id="shoppingAction" class="com.stx.action.user.ShoppingAction"
+	    scope="prototype">
+	</bean>
+	<bean id="personAction" class="com.stx.action.user.PersonAction"
+	    scope="prototype">
+	</bean>
+	<bean id="userOrderAction" class="com.stx.action.user.OrderAction"
+	    scope="prototype">
+	</bean>
+	<!-- AdminAction -->
+	<bean id="adminLoginAction" class="com.stx.action.admin.LoginAction"
+	    scope="prototype">
+	</bean>
+</beans>
+	

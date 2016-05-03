@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.stx.entity.User" table="users" lazy="false">
+		<id name="id" column="id" type="java.lang.Long">
+			<generator class="native" />
+		</id>
+		<property name="loginName" column="login_name" type="java.lang.String" />
+		<property name="password" column="password" type="java.lang.String" />
+		<property name="nickName" column="nick_name" type="java.lang.String"/>
+		<property name="userType" column="user_type" type="java.lang.Integer"/>
+		<property name="loginSwitch" column="login_switch" type="java.lang.Integer"/>
+		<property name="adminFlag" column="admin_flag" type="java.lang.Integer"/>
+		<property name="createTime" column="create_time" type="java.util.Date"/>
+		<property name="headPath" column="head_path" type="java.lang.String"/>
+	</class>
+</hibernate-mapping>
