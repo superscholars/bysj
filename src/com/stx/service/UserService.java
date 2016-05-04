@@ -24,7 +24,7 @@ import com.stx.entity.User;
  * 2016年3月8日
  */
 
-@Service
+@Service(value="userService")
 public class UserService {
 
 	@Autowired
@@ -235,5 +235,33 @@ public class UserService {
 		userDao.updateUserInfo(user);
 	}
 	
+	/**
+	 * 查询所有用户
+	 * @return
+	 */
+	public List<User> queryAllUser(){
+		return userDao.findUserByType(Constants.USER_TYPE);
+	}
+	
+	/**
+	 * 改变登陆状态
+	 * @param userId
+	 * @param status
+	 */
+	public void changeLoginSwitch(Long userId, Integer status){
+		User user = userDao.findUserById(userId);
+		user.setLoginSwitch(status);
+		userDao.updateUserInfo(user);
+	}
+	
+	
+	/**
+	 * 根据id获取用户信息
+	 * @param userId
+	 * @return
+	 */
+	public User getUserById(Long userId){
+		return userDao.findUserById(userId);
+	}
 	
 }

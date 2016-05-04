@@ -7,6 +7,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.stx.entity.User;
+import com.stx.util.CollectionUtils;
 
 @Repository
 public class UserDao extends BaseDao{
@@ -106,6 +107,25 @@ public class UserDao extends BaseDao{
 				.setParameter("id", id).list();
 		if (list != null && list.size() > 0) {
 			return list.get(0);
+		} else {
+			return null;
+		}
+	}
+	
+	/**
+	 * 根据用户类型查询用户
+	 * 
+	 * @return
+	 */
+	@SuppressWarnings("unchecked")
+	@Transactional
+	public List<User> findUserByType(Integer userType) {
+		Session session = sessionFactory.getCurrentSession();
+		String hql = "FROM User WHERE userType = :userType ";
+		List<User> list = (List<User>) session.createQuery(hql)
+				.setParameter("userType", userType).list();
+		if (CollectionUtils.isNotEmpty(list)) {
+			return list;
 		} else {
 			return null;
 		}

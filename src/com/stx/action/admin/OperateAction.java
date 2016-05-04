@@ -200,5 +200,52 @@ public class OperateAction extends ActionSupport implements ModelDriven<User>{
 		List<Merchant> merchantList = merchantService.pageAllMerchant(merchantType, merchantName); 
 		request.setAttribute("merchantList", merchantList);
 	}
+	
+	//======================禁闭用户
+	/**
+	 * 进入禁闭用户界面
+	 * @return
+	 */
+	public String confineUser(){
+		HttpServletRequest request = ServletActionContext.getRequest();
+		confineCondition(request);
+		return "confine";
+	}
+	
+	/**
+	 * 禁闭用户
+	 * @return
+	 */
+	public String doConfineUser(){
+		HttpServletRequest request = ServletActionContext.getRequest();
+		Long userId = RequestUtils.getId(request);
+		userService.changeLoginSwitch(userId, Constants.LOGIN_SWITCH_CLOSE);
+		confineCondition(request);
+		return "confine";
+	}
+	
+	/**
+	 * 解禁用户
+	 * @return
+	 */
+	public String unConfineUser(){
+		HttpServletRequest request = ServletActionContext.getRequest();
+		Long userId = RequestUtils.getId(request);
+		userService.changeLoginSwitch(userId, Constants.LOGIN_SWITCH_OPEN);
+		confineCondition(request);
+		return "confine";
+	}
+	
+	/**
+	 * 禁闭用户的展示内容
+	 * @param request
+	 */
+	private void confineCondition(HttpServletRequest request){
+		request.setAttribute(Constants.PAGE, "confineUser");
+		List<User> userList = userService.queryAllUser();
+		request.setAttribute("userList", userList);
+	}
+	
+	
 
 }
