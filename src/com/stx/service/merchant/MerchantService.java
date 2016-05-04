@@ -17,8 +17,10 @@ import org.springframework.stereotype.Service;
 import com.stx.dao.MerchantDao;
 import com.stx.entity.merchant.Merchant;
 import com.stx.entity.user.Collection;
+import com.stx.service.admin.PunishService;
 import com.stx.service.user.CollectionService;
 import com.stx.util.CollectionUtils;
+import com.stx.util.StringUtils;
 
 /**
  * 商户信息管理
@@ -33,6 +35,8 @@ public class MerchantService {
 	private MerchantDao merchantDao;
 	@Autowired
 	private CollectionService collectionService;
+	@Autowired
+	private PunishService punishService;
 	
 	/**
 	 * 查询用户收藏的商家
@@ -139,10 +143,20 @@ public class MerchantService {
 		return null;
 	}
 	
+	/**
+	 * 修改商户信息
+	 * @param newMerchant
+	 * @param oldMerchant
+	 * @return
+	 */
 	public String updateMerchantInfo(Merchant newMerchant,Merchant oldMerchant){
 		newMerchant.setId(oldMerchant.getId());
 		newMerchant.setUserId(oldMerchant.getUserId());
 		newMerchant.setMonthCount(oldMerchant.getMonthCount());
+		Double hour = punishService.validatePunish(oldMerchant.getId());
+		if(hour  != 0d){
+			return "您的商户已被禁闭，无法修改信息，"+ hour +"小时后才可以修改信息";
+		}
 		if(newMerchant.getName()==null||newMerchant.getName().trim().length()<1){
 			return "商户名称不能为空";
 		}
@@ -196,6 +210,33 @@ public class MerchantService {
 		merchant.setUserId(userId);
 		merchant.setWorkTime("请输入营业时间");
 		return merchantDao.saveMerchant(merchant);
+	}
+	
+	/**
+	 * 查找禁闭商户展示的数据
+	 * @param merchantCategory
+	 * @param merchantName
+	 * @return
+	 */
+	public List<Merchant> pageAllMerchant(String merchantType ,String merchantName){
+		if(StringUtils.isNotEmpty(merchantName)){
+			return merchantDao.findMerchantByName(merchantName);
+		}
+		if(StringUtils.isNotEmpty(merchantType)&&!"0".equals(merchantType)){
+			return merchantDao.adminFindMerchantByType(merchantType);
+		}
+		return merchantDao.findAllMerchant();
+	}
+	
+	/**
+	 * 改变商户上线状态
+	 * @param merchantId
+	 * @param flag
+	 */
+	public void changeMerchantOpen (Long merchantId, Integer flag){
+		Merchant merchant = merchantDao.findMerchantByMerchantId(merchantId);
+		merchant.setOpenFlag(flag);
+		merchantDao.updateMerchantInfo(merchant);
 	}
 	
 }

@@ -168,7 +168,9 @@ public class LoginAction extends ActionSupport implements ModelDriven<User>{
 	 * @return
 	 */
 	public String goHome(){
-		HttpServletRequest request = goHomeCondition(ServletActionContext.getRequest());
+		
+		HttpServletRequest request = ServletActionContext.getRequest();
+		goHomeCondition(request);
 		return "home";
 	}
 	

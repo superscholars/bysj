@@ -7,6 +7,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.stx.entity.merchant.Merchant;
+import com.stx.util.CollectionUtils;
 
 /**
  * 操作商户信息
@@ -32,6 +33,64 @@ public class MerchantDao extends BaseDao{
 				.setParameter("userId", userId).list();
 		if (list != null && list.size() > 0) {
 			return list.get(0);
+		} else {
+			return null;
+		}
+	}
+	
+	/**
+	 * 寻找全部商铺资料倒序
+	 * 
+	 * @param userId
+	 * @return
+	 */
+	@SuppressWarnings("unchecked")
+	@Transactional
+	public List<Merchant> findAllMerchant() {
+		Session session = sessionFactory.getCurrentSession();
+		String hql = "FROM Merchant order by id ";
+		List<Merchant> list = (List<Merchant>) session.createQuery(hql).list();
+		if (CollectionUtils.isNotEmpty(list)) {
+			return list;
+		} else {
+			return null;
+		}
+	}
+	
+	/**
+	 * 根据商户名称查找
+	 * 
+	 * @param userId
+	 * @return
+	 */
+	@SuppressWarnings("unchecked")
+	@Transactional
+	public List<Merchant> findMerchantByName(String merchantName) {
+		Session session = sessionFactory.getCurrentSession();
+		String hql = "FROM Merchant WHERE name = :merchantName order by id ";
+		List<Merchant> list = (List<Merchant>) session.createQuery(hql).setParameter("merchantName", merchantName).list();
+		if (CollectionUtils.isNotEmpty(list)) {
+			return list;
+		} else {
+			return null;
+		}
+	}
+	
+	/**
+	 * 管理员根据商铺类型寻找商铺
+	 * 
+	 * @param userId
+	 * @return
+	 */
+	@SuppressWarnings("unchecked")
+	@Transactional
+	public List<Merchant> adminFindMerchantByType(String merchantType) {
+		Session session = sessionFactory.getCurrentSession();
+		String hql = "FROM Merchant WHERE merchantType = :merchantType";
+		List<Merchant> list = (List<Merchant>) session.createQuery(hql)
+				.setParameter("merchantType", merchantType).list();
+		if (list != null && list.size() > 0) {
+			return list;
 		} else {
 			return null;
 		}

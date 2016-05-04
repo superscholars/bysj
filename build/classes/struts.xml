@@ -111,6 +111,8 @@
 		<action name="operate_*" class="adminOperateAction" method="{1}">
 		    <result name="check">/WEB-INF/page/admin/check-merchant.jsp</result>
 		    <result name="complaint">/WEB-INF/page/admin/complaint.jsp</result>
+		    <result name="punishMerchant">/WEB-INF/page/admin/punish-merchant.jsp</result>
+		    <result name="merchatMain">/WEB-INF/page/admin/merchant-main.jsp</result>
 		</action>
 		
 	</package>

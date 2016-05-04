@@ -23,7 +23,7 @@ public class MerchantTypeDao extends BaseDao{
 	@Transactional
 	public List<MerchantType> findMerchantType() {
 		Session session = sessionFactory.getCurrentSession();
-		String hql = "FROM MerchantType";
+		String hql = "FROM MerchantType order by id asc";
 		List<MerchantType> list = (List<MerchantType>) session.createQuery(hql).list();
 		if (list != null && list.size() > 0) {
 			return list;

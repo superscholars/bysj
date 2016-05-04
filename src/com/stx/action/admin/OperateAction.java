@@ -12,9 +12,18 @@ import com.opensymphony.xwork2.ModelDriven;
 import com.stx.entity.Constants;
 import com.stx.entity.User;
 import com.stx.entity.admin.Complaint;
+import com.stx.entity.merchant.Merchant;
+import com.stx.entity.merchant.MerchantType;
+import com.stx.entity.vo.CommentVo;
+import com.stx.entity.vo.GoodsVo;
 import com.stx.service.UserService;
 import com.stx.service.admin.ComplaintService;
+import com.stx.service.admin.PunishService;
+import com.stx.service.merchant.GoodsService;
 import com.stx.service.merchant.MerchantService;
+import com.stx.service.merchant.MerchantTypeService;
+import com.stx.service.merchant.StrategyService;
+import com.stx.service.user.MerchantCommentService;
 import com.stx.util.RequestUtils;
 
 public class OperateAction extends ActionSupport implements ModelDriven<User>{
@@ -35,6 +44,16 @@ public class OperateAction extends ActionSupport implements ModelDriven<User>{
 	private MerchantService merchantService;
 	@Autowired
 	private ComplaintService complaintService;
+	@Autowired
+	private MerchantTypeService merchantTypeService;
+	@Autowired
+	private StrategyService strategyService;
+	@Autowired
+	private GoodsService goodsService;
+	@Autowired
+	private MerchantCommentService merchantCommentService;
+	@Autowired
+	private PunishService punishService;
 	
 	// ====================审核商户
 	/**
@@ -94,6 +113,92 @@ public class OperateAction extends ActionSupport implements ModelDriven<User>{
 		List<Complaint> complaints = complaintService.listComplaint(startDateStr, endDateStr);
 		request.setAttribute("complaintList", complaints);
 		return "complaint";
+	}
+	
+	//===================禁闭商户
+	
+	/**
+	 * 紧闭商户主页
+	 * @return
+	 */
+	public String punishMerchant(){
+		HttpServletRequest request = ServletActionContext.getRequest();
+		punishMerchantCondition(request);
+		return "punishMerchant";
+	}
+	
+	/**
+	 * 禁闭商户操作
+	 */
+	public String doPunishMerchant(){
+		HttpServletRequest request = ServletActionContext.getRequest();
+		Long merchantId = RequestUtils.getId(request);
+		String merchantName = request.getParameter("name");
+		Integer punishDays = Integer.parseInt(request.getParameter("days"));
+		String reason = request.getParameter("reason");
+		User loginContext = RequestUtils.getUser(request);
+		String result = punishService.punishMerchant(loginContext, merchantId, merchantName, reason, punishDays);
+		if(result==null){
+			request.setAttribute("success", "处罚成功。");
+		}else{
+			request.setAttribute("err", result);
+		}
+		punishMerchantCondition(request);
+		return "punishMerchant";
+	}
+	
+	/**
+	 * 打开商户主界面
+	 * @return
+	 */
+	public String merchantMain(){
+		HttpServletRequest request = ServletActionContext.getRequest();
+		Long merchantId = RequestUtils.getId(request);
+		User loginContext = RequestUtils.getUser(request);
+		request = merchantCondition(request,merchantId,loginContext.getId());
+		return "merchatMain";
+	}
+	
+	/**
+	 * 跳转商户界面携带参数
+	 * @param request
+	 * @param merchantId
+	 * @param userId
+	 * @return
+	 */
+	private HttpServletRequest merchantCondition(HttpServletRequest request ,Long merchantId , Long userId){
+		Merchant merchant = merchantService.getMerchantByMerchantId(merchantId);
+		request.setAttribute("merchant", merchant);
+		String strategyStr = strategyService.getStrategyShow(merchantId);
+		request.setAttribute("strategy", strategyStr);
+		List<GoodsVo> goodsList = goodsService.queryGoods(merchantId);
+		request.setAttribute("goodsList", goodsList);
+		List<CommentVo> commentList = merchantCommentService.queryMerchantCommentByMerchantId(merchantId);
+		request.setAttribute("commentList", commentList);
+		Double punishTime = punishService.validatePunish(merchantId);
+		if(punishTime == 0){
+			request.setAttribute("success", "该商家未被禁闭");
+		}else{
+			request.setAttribute("err", "商家还有"+punishTime+"消失解禁");
+		}
+		return request;
+	}
+	
+	/**
+	 * 跳转至禁闭商户的携带参数
+	 * 
+	 * @param request
+	 */
+	private void punishMerchantCondition(HttpServletRequest request){
+		request.setAttribute(Constants.PAGE, "punishMerchant");
+		String merchantName = request.getParameter("merchantName");
+		String merchantType = request.getParameter("merchantType");
+		request.setAttribute("merchantType", merchantType);
+		request.setAttribute("merchantName", merchantName);
+		List<MerchantType> merchantTypeList = merchantTypeService.queryAllMerchantType();
+		request.setAttribute("merchantTypeList", merchantTypeList);
+		List<Merchant> merchantList = merchantService.pageAllMerchant(merchantType, merchantName); 
+		request.setAttribute("merchantList", merchantList);
 	}
 
 }

@@ -29,18 +29,18 @@
 			<li id="order"><a href="${ctx}/admin/admin_goHome.action">订单中心</a></li>
 			<li id="check"><a href="${ctx}/admin/operate_checkMerchant.action">审核商户</a></li>
 			<li id="complaint"><a href="${ctx}/admin/operate_complaint.action">投诉中心</a></li>
-			<li id="order"><a href="${ctx}/admin/admin_goHome.action">禁闭商户</a></li>
-			<li id="order"><a href="${ctx}/admin/admin_goHome.action">屏蔽用户</a></li>
+			<li id="punishMerchant"><a href="${ctx}/admin/operate_punishMerchant.action">禁闭商户</a></li>
+			<li id="punishUser"><a href="${ctx}/admin/operate_punishUser.action">屏蔽用户</a></li>
 			<c:if test="${loginContext.adminFlag eq 1}">
-				<li id="order"><a href="${ctx}/admin/admin_goHome.action">开通管理账户</a></li><!-- 仅限超管 -->
+				<li id="grant"><a href="${ctx}/admin/operate_grant.action">开通管理账户</a></li><!-- 仅限超管 -->
 			</c:if>
 		</ul>
 	</div>
 </nav>
 <script>
 	$(function(){
-		if($(".sr-only").html()=="home"){
-			$("#home").addClass("active");
+		if($(".sr-only").html()=="order"){
+			$("#order").addClass("active");
 		}
 		if($(".sr-only").html()=="check"){
 			$("#check").addClass("active");
@@ -48,8 +48,14 @@
 		if($(".sr-only").html()=="complaint"){
 			$("#complaint").addClass("active");
 		}
-		if($(".sr-only").html()=="person"){
-			$("#person").addClass("active");
+		if($(".sr-only").html()=="punishMerchant"){
+			$("#punishMerchant").addClass("active");
+		}
+		if($(".sr-only").html()=="punishUser"){
+			$("#punishUser").addClass("active");
+		}
+		if($(".sr-only").html()=="grant"){
+			$("#grant").addClass("active");
 		}
 	});
 </script>
