@@ -17,6 +17,7 @@ import org.springframework.stereotype.Service;
 import com.stx.dao.UserDao;
 import com.stx.entity.Constants;
 import com.stx.entity.User;
+import com.stx.util.StringUtils;
 
 /**
  * 用户，管理员，商户登陆、注册同意管理
@@ -262,6 +263,47 @@ public class UserService {
 	 */
 	public User getUserById(Long userId){
 		return userDao.findUserById(userId);
+	}
+	
+	/**
+	 * 查询所有管理员
+	 * @return
+	 */
+	public List<User> queryAdmin(){
+		return userDao.findUserByType(Constants.ADMIN_TYPE);
+	}
+	
+	/**
+	 * 添加管理账户
+	 * @param user
+	 * @return
+	 */
+	public String addAdmin(User user){
+		if(StringUtils.isEmpty(user.getLoginName())){
+			return "用户名不能为空";
+		}
+		if(StringUtils.isEmpty(user.getNickName())){
+			return "昵称不能为空";
+		}
+		if(StringUtils.isEmpty(user.getPassword())){
+			return "密码不能为空";
+		}
+		if(userDao.existsUserByLoginName(user.getLoginName())){
+			return "用户名已存在";
+		}
+		if(userDao.existsUserByNickName(user.getNickName())){
+			return "昵称已存在";
+		}
+		user.setAdminFlag(0);
+		user.setCreateTime(new Date());
+		user.setHeadPath("head.jpg");
+		user.setLoginSwitch(Constants.LOGIN_SWITCH_OPEN);
+		user.setUserType(Constants.ADMIN_TYPE);
+		Long id = userDao.saveUser(user);
+		if(id == null || id == 0){
+			return "添加失败";
+		}
+		return null;
 	}
 	
 }

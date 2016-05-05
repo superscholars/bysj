@@ -114,6 +114,7 @@
 		    <result name="punishMerchant">/WEB-INF/page/admin/punish-merchant.jsp</result>
 		    <result name="merchatMain">/WEB-INF/page/admin/merchant-main.jsp</result>
 		    <result name="confine">/WEB-INF/page/admin/confine-user.jsp</result>
+		    <result name="grant">/WEB-INF/page/admin/grant.jsp</result>
 		</action>
 		
 	</package>

@@ -14,7 +14,7 @@
 		<div>
 			<ol class="breadcrumb">
 	  			<li><a href="#">随便美餐运营管理后台</a></li>
-				 	<li class="active">禁闭用户</li>
+				 	<li class="active">管理员账户管理</li>
 			</ol>
 		</div>
 		<c:if test="${!empty err}">
@@ -29,6 +29,11 @@
 					&times; </a> ${success}
 			</div>
 		</c:if>
+		
+			<button class="btn btn-success" data-toggle="modal" 
+							   data-target="#myModal">
+							   添加管理员
+			</button>
 		
 		<table class="table table-responsive table-striped table-hover">
 		   <thead>
@@ -65,10 +70,10 @@
 				         </td>
 				         <td>
 				         	 <c:if test="${user.loginSwitch eq 1}">
-					         	 <a class="btn btn-danger btn-sm"  href="${ctx}/admin/operate_doConfineUser.action?id=${user.id}">禁闭</a>
+					         	 <a class="btn btn-danger btn-sm"  href="${ctx}/admin/operate_doGrant.action?id=${user.id}">禁闭</a>
 				         	 </c:if>
 				         	 <c:if test="${user.loginSwitch eq 2}">
-					         	 <a class="btn btn-danger btn-sm" href="${ctx}/admin/operate_unConfineUser.action?id=${user.id}">解禁</a>
+					         	 <a class="btn btn-danger btn-sm" href="${ctx}/admin/operate_unGrant.action?id=${user.id}">解禁</a>
 				         	 </c:if>
 				         </td>
 				      </tr>
@@ -77,6 +82,59 @@
 		      </c:if>
 		   </tbody>
 		</table>
+	
+		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" 
+			   aria-labelledby="myModalLabel" aria-hidden="true">
+				   <div class="modal-dialog">
+				      <div class="modal-content">
+				         <div class="modal-header">
+				            <button type="button" class="close" 
+				               data-dismiss="modal" aria-hidden="true">
+				                  &times;
+				            </button>
+				            <h4 class="modal-title" id="myModalLabel">
+				              		添加管理员账户
+				            </h4>
+				         </div>
+				         <div class="modal-body">
+			            	<form action="${ctx}/admin/operate_addAdmin.action"
+								 method="post" role="form">
+								 
+								 <div class="row">
+									<div class="form-group col-xs-12 col-md-12">
+										<label class="control-label " >昵称</label> 
+										<input
+											class="form-control " name="nickName" type="text" />
+									</div>
+								</div>
+								 
+								<div class="row">
+									<div class="form-group col-xs-12 col-md-12">
+										<label class="control-label " >用户名</label> 
+										<input
+											class="form-control " name="loginName" type="text" />
+									</div>
+								</div>
+								
+								<div class="row">
+									<div class="form-group col-xs-12 col-md-12">
+										<label class="control-label " >密码</label> 
+										<input
+											class="form-control " name="password" type="password" />
+									</div>
+								</div>
+								
+								<div class="row">
+									<div class="form-group col-xs-12 col-md-12">
+										<input class="btn btn-primary" type="submit" value="确定">
+										<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+									</div>
+								</div>
+							</form>
+				         </div>
+				      </div><!-- /.modal-content -->
+				</div><!-- /.modal -->
+			</div>
 	
 	</div>
 	<%@ include file="../inc/admin/footer.jsp" %>

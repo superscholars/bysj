@@ -246,6 +246,69 @@ public class OperateAction extends ActionSupport implements ModelDriven<User>{
 		request.setAttribute("userList", userList);
 	}
 	
+	//=====================管理员账号管理
 	
+	public String grant(){
+		HttpServletRequest request = ServletActionContext.getRequest();
+		User loginContext = RequestUtils.getUser(request);
+		grantCondition(request,loginContext);
+		return "grant";
+	}
+	
+	/**
+	 * 添加管理员账户
+	 * @return
+	 */
+	public String addAdmin(){
+		HttpServletRequest request = ServletActionContext.getRequest();
+		User loginContext = RequestUtils.getUser(request);
+		String result = userService.addAdmin(user);
+		if(result == null){
+			request.setAttribute("success", "添加成功。");
+		}else{
+			request.setAttribute("err", result);
+		}
+		grantCondition(request,loginContext);
+		return "grant";
+	}
+	
+	/**
+	 * 用户显示
+	 * @param request
+	 */
+	private void grantCondition(HttpServletRequest request, User loginContext){
+		if(loginContext.getAdminFlag() != 1){
+			return ;
+		}
+		request.setAttribute(Constants.PAGE, "grant");
+		List<User> userList = userService.queryAdmin();
+		request.setAttribute("userList", userList);
+	}
+	
+	/**
+	 * 禁闭管理员
+	 * @return
+	 */
+	public String doGrant(){
+		HttpServletRequest request = ServletActionContext.getRequest();
+		User loginContext = RequestUtils.getUser(request);
+		Long userId = RequestUtils.getId(request);
+		userService.changeLoginSwitch(userId, Constants.LOGIN_SWITCH_CLOSE);
+		grantCondition(request,loginContext);
+		return "grant";
+	}
+	
+	/**
+	 * 解禁管理员
+	 * @return
+	 */
+	public String unGrant(){
+		HttpServletRequest request = ServletActionContext.getRequest();
+		User loginContext = RequestUtils.getUser(request);
+		Long userId = RequestUtils.getId(request);
+		userService.changeLoginSwitch(userId, Constants.LOGIN_SWITCH_OPEN);
+		grantCondition(request,loginContext);
+		return "grant";
+	}
 
 }
