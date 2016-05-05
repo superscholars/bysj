@@ -31,7 +31,6 @@
 			<li id="category"><a href="${ctx}/merchant/goodsCategory_openPage.action">分类管理</a></li>
 			<li id="goods"><a href="${ctx}/merchant/goods_openPage.action">菜品管理</a></li>
 			<li id="strategy"><a href="${ctx}/merchant/strategy_openPage.action">优惠策略</a></li>
-			<li id="stats"><a href="#">数据统计</a> </li>
 		</ul>
 	</div>
 </nav>
@@ -51,9 +50,6 @@
 		}
 		if($(".sr-only").html()=="strategy"){
 			$("#strategy").addClass("active");
-		}
-		if($(".sr-only").html()=="stats"){
-			$("#stats").addClass("active");
 		}
 	});
 </script>
