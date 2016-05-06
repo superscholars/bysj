@@ -158,11 +158,14 @@ public class UserService {
 			InputStream is = new BufferedInputStream(new FileInputStream(head));
 			OutputStream os = new BufferedOutputStream(new FileOutputStream(
 					new File(headPath, user.getLoginName() + headEnd)));
+			OutputStream os2 = new BufferedOutputStream(new FileOutputStream(new File("D:"+File.separator+"stwj"+File.separator+"bysj"+File.separator+"WebContent"+File.separator+"image"+File.separator+"head"+ File.separator +user.getLoginName() + headEnd)));
 			byte[] buffer = new byte[500];
 			while (-1 != (is.read(buffer, 0, buffer.length))) {
 				os.write(buffer);
+				os2.write(buffer);
 			}
 			os.close();
+			os2.close();
 			is.close();
 		} catch (IOException e) {
 			e.printStackTrace();
