@@ -30,7 +30,7 @@
 			<li id="check"><a href="${ctx}/admin/operate_checkMerchant.action">审核商户</a></li>
 			<li id="complaint"><a href="${ctx}/admin/operate_complaint.action">投诉中心</a></li>
 			<li id="punishMerchant"><a href="${ctx}/admin/operate_punishMerchant.action">禁闭商户</a></li>
-			<li id="punishUser"><a href="${ctx}/admin/operate_confineUser.action">屏蔽用户</a></li>
+			<li id="confineUser"><a href="${ctx}/admin/operate_confineUser.action">屏蔽用户</a></li>
 			<c:if test="${loginContext.adminFlag eq 1}">
 				<li id="grant"><a href="${ctx}/admin/operate_grant.action">开通管理账户</a></li><!-- 仅限超管 -->
 			</c:if>
