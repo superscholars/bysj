@@ -26,7 +26,7 @@
 				   	  </c:forEach>
 				      <tr><td>商品总费用</td><td>&nbsp;</td><td>￥${detailVo.priceInfo.amount}</td></tr>
 				      <tr><td>配送费</td><td>&nbsp;</td><td>￥${detailVo.priceInfo.deliveryPrice}</td></tr>
-				      <tr><td>餐盒费</td><td>&nbsp;</td><td>￥${detailVo.priceInfo.boxPrice}</td></tr>
+				      <tr><td>餐具费</td><td>&nbsp;</td><td>￥${detailVo.priceInfo.boxPrice}</td></tr>
 				      <tr><td>优惠费用</td><td>&nbsp;</td><td>￥${detailVo.priceInfo.balance}</td></tr>
 				       
 				   </table>

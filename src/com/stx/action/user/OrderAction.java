@@ -20,6 +20,7 @@ import com.stx.service.merchant.MerchantService;
 import com.stx.service.order.OrderService;
 import com.stx.util.CollectionUtils;
 import com.stx.util.RequestUtils;
+import com.stx.util.StringUtils;
 
 /**
  * 订单业务
@@ -117,7 +118,33 @@ public class OrderAction extends ActionSupport {
 		String sessionKey = loginContext.getLoginName()+Constants.GOU;
 		request.getSession().removeAttribute(sessionKey);
 		/** 保存订单信息 **/
-		orderService.createOrder(orderId, eatType, payType);
+		String result = orderService.createOrder(orderId, eatType, payType);
+		if(StringUtils.isNotEmpty(result)){
+			
+			request.setAttribute(Constants.PAGE, "order");
+			// 判断商家是否上架   判断商品是否供应
+			String result2 = orderService.validateAgain(orderId);
+			if(result2!=null){
+				request.setAttribute("err", result2);
+				request = orderCondition(request ,loginContext.getId());
+				return "index";
+			}
+			/** 再下一单 **/
+			Long orderId1 = orderService.againOrder(orderId, loginContext);
+			/** 添加参数 **/
+			Order order= orderService.getOrderById(orderId1);
+			List<GoodsInfo> goodsInfos = orderService.queryGoodsInfoByOid(orderId1);
+			PriceInfo priceInfo = orderService.getOrderPriceByOid(orderId1);
+			Merchant merchant = merchantService.getMerchantByMerchantId(order.getMerchantId());
+			/** 传值 **/
+			request.setAttribute("order", order);
+			request.setAttribute("goodsInfos", goodsInfos);
+			request.setAttribute("priceInfo", priceInfo);
+			request.setAttribute("codFlag", merchant.getCodFlag());
+			request.setAttribute("err", result);
+			return "placeOrder";
+			
+		}
 		request = orderCondition(request ,loginContext.getId());
 		return "index";
 	}

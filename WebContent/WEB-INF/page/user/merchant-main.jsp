@@ -55,7 +55,7 @@
 							<div class="month-count">月销量：<b>${merchant.monthCount}</b></div>
 							<div class="start-charge">起送费用：<b>${merchant.deliveryStart}</b>元起送</div>
 							<div class="start-charge">配送费用：<b>${merchant.deliveryPrice}</b>元</div>
-							<div class="start-charge">餐盒费用：<b>${merchant.boxPrice}</b>元</div>
+							<div class="start-charge">餐具费用：<b>${merchant.boxPrice}</b>元</div>
 							<div class="start-charge">预计配送时间：<b>${merchant.deliveryTime}</b>分钟</div>
 							<div class="start-charge">营业时间：<b>${merchant.workTime}</b></div>
 						</div>

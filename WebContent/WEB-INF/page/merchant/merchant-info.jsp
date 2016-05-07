@@ -87,7 +87,7 @@
 				    </div>
 				</div>
 				<div class="form-group col-xs-6 col-md-6">
-					<label class="control-label " for="boxPrice">餐盒费用</label> 
+					<label class="control-label " for="boxPrice">餐具费用</label> 
 					<div class="input-group">
 				         <span class="input-group-addon">￥</span>
 				         <input class="form-control" id="boxPrice" name="boxPrice" type="text" value="${merchant.boxPrice}">

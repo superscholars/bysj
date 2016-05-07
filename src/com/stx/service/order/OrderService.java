@@ -96,6 +96,16 @@ public class OrderService {
 	 */
 	public Long generateOrder(User loginContext, Merchant merchant,
 			Address address, List<Goods> goodsList, Integer[] counts) {
+		
+		/** 基础价格，用于计价 **/
+		Float amount = 0f;
+
+		for (int i = 0; i < goodsList.size(); i++) {
+			Goods goods = goodsList.get(i);
+			Integer count = counts[i];
+			amount = amount + goods.getPrice() * count; // 累计总价
+		}
+		
 		/** 保存订单 **/
 		Order order = new Order();
 		order.setOrderNumber(OrderNumber.generator());
@@ -111,9 +121,6 @@ public class OrderService {
 		order.setDeliveryTime(merchant.getDeliveryTime());
 		Long orderId = orderDao.saveOrder(order);
 
-		/** 基础价格，用于计价 **/
-		Float amount = 0f;
-
 		/** 保存商品信息 **/
 		GoodsInfo goodsInfo = null;
 		for (int i = 0; i < goodsList.size(); i++) {
@@ -125,7 +132,6 @@ public class OrderService {
 			goodsInfo.setGoodsName(goods.getName());
 			goodsInfo.setGoodsCount(count);
 			goodsInfo.setGoodsPrice(goods.getPrice());
-			amount = amount + goods.getPrice() * count; // 累计总价
 			goodsInfoDao.saveGoodsInfo(goodsInfo);
 		}
 
@@ -253,9 +259,20 @@ public class OrderService {
 	 * @param eatType
 	 * @param payType
 	 */
-	public void createOrder(Long orderId, Integer eatType, Integer payType) {
-		/** 补全订单信息 **/
+	public String createOrder(Long orderId, Integer eatType, Integer payType) {
 		Order order = orderDao.findOrdersById(orderId);
+		
+		List<GoodsInfo> goodsList = goodsInfoDao.findGoodsInfoByOid(orderId);
+		float amount = 0f;
+		for(GoodsInfo goodsInfo : goodsList){
+			amount = amount + goodsInfo.getGoodsCount() + goodsInfo.getGoodsCount();
+		}
+		Merchant merchant = merchantService.getMerchantByMerchantId(order.getMerchantId());
+		if(amount < merchant.getDeliveryStart() && eatType == 1){
+			return "未达到起送费用";
+		}
+		
+		/** 补全订单信息 **/
 		order.setEatType(eatType);
 		order.setPayType(payType);
 		order.setStatus(Constants.STATUS_WAITTING);
@@ -268,6 +285,7 @@ public class OrderService {
 		orderProcess.setProcessStatus(Constants.STATUS_NAME_WAITTING);
 		orderProcess.setProcessTime(new Date());
 		orderProcessDao.saveOrderProcess(orderProcess);
+		return null;
 	}
 
 	/**

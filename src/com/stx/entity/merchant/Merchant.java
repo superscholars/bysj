@@ -67,7 +67,7 @@ public class Merchant implements Serializable{
 	private Float deliveryPrice;
 	
 	/**
-	 * 餐盒费
+	 * 餐具费
 	 */
 	private Float boxPrice;
 	

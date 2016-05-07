@@ -13,6 +13,14 @@
 	<body>
 	<%@ include file="../inc/user/top.jsp" %>
 		<div class="container">
+		<div class="row">
+			<c:if test="${!empty err}">
+				<div class="alert alert-danger">
+					<a class="close" data-dismiss="alert" href="#" aria-hidden="true">
+						&times; </a> ${err}
+				</div>
+			</c:if>
+		</div>
 			<div style="padding: 20px 100px;">
 			<form action="${ctx}/user/order_createOrder.action" method="post" role="from">
 				<input name="orderId" type="hidden" value="${order.id}">
@@ -51,7 +59,7 @@
 				   	  
 				      <tr class="warning"><td>商品总费用</td><td>&nbsp;</td><td>&nbsp;￥${priceInfo.amount}</td></tr>
 				      <tr class="warning"><td>配送费</td><td>&nbsp;</td><td>+&nbsp;￥${priceInfo.deliveryPrice}</td></tr>
-				      <tr class="warning"><td>餐盒费</td><td>&nbsp;</td><td>+&nbsp;￥${priceInfo.boxPrice}</td></tr>
+				      <tr class="warning"><td>餐具费</td><td>&nbsp;</td><td>+&nbsp;￥${priceInfo.boxPrice}</td></tr>
 				      <tr class="warning"><td>优惠费用</td><td>&nbsp;</td><td>-&nbsp;￥${priceInfo.balance}</td></tr>
 				   </table>
 				   <div class="panel-footer">
