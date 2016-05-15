@@ -68,7 +68,7 @@ public class OperateAction extends ActionSupport implements ModelDriven<User>{
 	}
 	
 	/**
-	 * 通过商户
+	 * 审核通过商户
 	 * 
 	 * @return
 	 */

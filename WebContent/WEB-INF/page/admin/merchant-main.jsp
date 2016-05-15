@@ -46,7 +46,7 @@
 					</div>
 					<div class="charge">
 						<div class="feiyong">
-							<div class="month-count">月销量：<b>${merchant.monthCount}</b></div>
+							<div class="month-count">餐品销量：<b>${merchant.monthCount}</b></div>
 							<div class="start-charge">起送费用：<b>${merchant.deliveryStart}</b>元起送</div>
 							<div class="start-charge">配送费用：<b>${merchant.deliveryPrice}</b>元</div>
 							<div class="start-charge">餐盒费用：<b>${merchant.boxPrice}</b>元</div>

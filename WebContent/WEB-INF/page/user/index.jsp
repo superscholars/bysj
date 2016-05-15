@@ -33,19 +33,19 @@
 			   <div class="carousel-inner">
 			      <div class="item active">
 			         <img src="${ctx}/image/banner/banner1.jpg" alt="First slide">
-			         <div class="carousel-caption">标题 1</div>
+			         <div class="carousel-caption">鸡翅</div>
 			      </div>
 			      <div class="item">
 			         <img src="${ctx}/image/banner/banner2.jpg" alt="Second slide">
-			         <div class="carousel-caption">标题 2</div>
+			         <div class="carousel-caption">KFC</div>
 			      </div>
 			      <div class="item">
 			         <img src="${ctx}/image/banner/banner3.jpg" alt="Third slide">
-			         <div class="carousel-caption">标题 3</div>
+			         <div class="carousel-caption">山珍海味</div>
 			      </div>
 			      <div class="item">
 			         <img src="${ctx}/image/banner/banner4.jpg" alt="Third slide">
-			         <div class="carousel-caption">标题 4</div>
+			         <div class="carousel-caption">鲜橙多</div>
 			      </div>
 			   </div>
 			   <!-- 轮播（Carousel）导航 -->
@@ -71,7 +71,7 @@
 					</c:if>
 					<form action="${ctx}/user/user_search.action">
 						<div id="search" class="input-group">
-			               <input name="condition" type="text" class="form-control">
+			               <input name="condition" type="text" class="form-control" placeholder="请输入餐品名称">
 			               <span class="input-group-btn">
 			                  <input class="btn btn-primary" type="submit" value="Go!">
 			               </span>
@@ -89,28 +89,6 @@
 			            			<a href="${ctx}/user/user_merchantType.action?type=${type.merchantType}" class="btn">${type.merchantType}</a>
 			            		</span>
 		            		</c:forEach>
-		            	</div>
-		            	
-		            	<div class="row">
-		            		<span class="col-md-2">
-		            			<a class="btn">巴拉巴拉</a>
-		            		</span>
-		            		<span class="col-md-2">
-		            			<a class="btn">巴拉巴拉</a>
-		            		</span>
-		            		<span class="col-md-2">
-		            			<a class="btn">巴拉巴拉</a>
-		            		</span>
-		            		<span class="col-md-2">
-		            			<a class="btn">巴拉巴拉</a>
-		            		</span>
-		            		<span class="col-md-2">
-		            			<a class="btn">巴拉巴拉</a>
-		            		</span>
-		            		<span class="col-md-2">
-		            			<a class="btn">巴拉巴拉</a>
-		            		</span>
-		            		
 		            	</div>
 		            	
 	            	</div>

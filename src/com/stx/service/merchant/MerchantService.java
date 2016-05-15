@@ -15,6 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.stx.dao.MerchantDao;
+import com.stx.entity.Constants;
 import com.stx.entity.merchant.Merchant;
 import com.stx.entity.user.Collection;
 import com.stx.service.admin.PunishService;
@@ -50,7 +51,10 @@ public class MerchantService {
 		}
 		List<Merchant> reList = new ArrayList<Merchant>();
 		for(Collection collection : collectionList){
-			reList.add(merchantDao.findMerchantByMerchantId(collection.getMerchantId()));
+			Merchant merchant = merchantDao.findMerchantByMerchantId(collection.getMerchantId());
+			if(merchant.getOpenFlag() == Constants.FLAG_OPEN){
+				reList.add(merchant);
+			}
 		}
 		return reList;
 	}

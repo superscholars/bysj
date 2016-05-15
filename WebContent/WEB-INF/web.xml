@@ -11,7 +11,7 @@
 	    <filter-class>com.stx.filter.LoginFilter</filter-class>
 	    <init-param>
 	        <param-name>disAuth</param-name>
-	        <param-value>/css/base.css;/merchant/merchant_login.action;/merchant/merchant_doLogin.action;/merchant/merchant_register.action;/merchant/merchant_doRegist.action;/merchant/merchant_logout.action;/static/bootstrap/css/bootstrap.min.css;/static/css/base.css;/static/jquery-2.2.2.min.js;/static/bootstrap/js/bootstrap.min.js;/user/user_doLogin.action;/user/user_register.action;/user/user_doRegist.action;/user/user_login.action;/bootstrap/css/bootstrap.min.css;/admin/admin_login.action;/admin/admin_doLogin.action;/bootstrap/css/bootstrap-datetimepicker.min.css;/bootstrap/js/bootstrap-datetimepicker.min.js;/bootstrap/js/bootstrap-datetimepicker.zh-CN.js</param-value>
+	        <param-value>/css/base.css;/css/styles.css;/merchant/merchant_login.action;/merchant/merchant_doLogin.action;/merchant/merchant_register.action;/merchant/merchant_doRegist.action;/merchant/merchant_logout.action;/static/bootstrap/css/bootstrap.min.css;/static/css/base.css;/js/jquery-2.2.2.min.js;/bootstrap/js/bootstrap.min.js;/user/user_doLogin.action;/user/user_register.action;/user/user_doRegist.action;/user/user_login.action;/bootstrap/css/bootstrap.min.css;/admin/admin_login.action;/admin/admin_doLogin.action;/bootstrap/css/bootstrap-datetimepicker.min.css;/bootstrap/js/bootstrap-datetimepicker.min.js;/bootstrap/js/bootstrap-datetimepicker.zh-CN.js;/admin/admin_logout.action</param-value>
 	    </init-param>
 	</filter>
 	<filter-mapping>

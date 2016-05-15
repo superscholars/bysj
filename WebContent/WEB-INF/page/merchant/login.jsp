@@ -47,7 +47,7 @@
 				
 				<div class="row">
 					<div class="form_group col-md-6">
-						<input class="form-control" name="password" type="password"> 
+						<input class="form-control" name="password" type="password" placeholder="请输入密码"> 
 					</div>
 				</div>
 				

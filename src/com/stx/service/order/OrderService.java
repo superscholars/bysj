@@ -265,7 +265,7 @@ public class OrderService {
 		List<GoodsInfo> goodsList = goodsInfoDao.findGoodsInfoByOid(orderId);
 		float amount = 0f;
 		for(GoodsInfo goodsInfo : goodsList){
-			amount = amount + goodsInfo.getGoodsCount() + goodsInfo.getGoodsCount();
+			amount = amount + goodsInfo.getGoodsCount() * goodsInfo.getGoodsPrice();
 		}
 		Merchant merchant = merchantService.getMerchantByMerchantId(order.getMerchantId());
 		if(amount < merchant.getDeliveryStart() && eatType == 1){

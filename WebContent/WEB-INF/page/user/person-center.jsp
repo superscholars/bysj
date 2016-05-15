@@ -69,7 +69,7 @@
 				<c:choose>
 					<c:when test="${empty merchantList}">
 						<div class="collection-item" style="text-align: center;font-size:20px">
-							<b>尚未收藏任何商户</b>
+							<b>尚未收藏任何商户，或商户已被禁闭</b>
 						</div>
 					</c:when>
 					<c:otherwise>

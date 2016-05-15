@@ -162,7 +162,7 @@
 												<div class="row">
 													<div class="form-group col-xs-6 col-md-6">
 														<input class="btn btn-primary" type="submit" value="确定">
-														<a class="btn btn-default" href="#" onClick=" javascript :history.back(-1);">返回</a>
+														<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
 													</div>
 												</div>
 											</form>

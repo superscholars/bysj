@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ include file="../base.jsp" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <c:set var="ctx" value="${pageContext.request.contextPath}" />
@@ -9,10 +10,6 @@
 <meta charset="utf-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, maximum-scale=1.2, user-scalable=1">
-<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
-<link href="http://libs.baidu.com/bootstrap/3.0.3/css/bootstrap.min.css"
-	rel="stylesheet">
-<script src="http://libs.baidu.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
 <title>随便美餐-用户</title>
 <style type="text/css">
 </style>
@@ -26,7 +23,7 @@
 			</div>
 		</c:if>
 		
-		<h1> 注册商户登陆账号  </h1>
+		<h1> 注册用户登陆账号  </h1>
 		
 		<div>
 			<form class="form" name="register" action="${ctx}/user/user_doRegist.action" 

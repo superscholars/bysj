@@ -35,7 +35,7 @@ public class OrderAction extends ActionSupport {
 	private MerchantService merchantService;
 	
 	/**
-	 * 打开主页
+	 * 进入主页
 	 * @return
 	 */
 	public String openPage(){

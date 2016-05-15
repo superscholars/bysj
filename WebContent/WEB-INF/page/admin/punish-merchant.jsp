@@ -42,7 +42,7 @@
 	         <select class="form-control" name="merchantType">
 		         <option value="0"  <c:if test="${merchantType eq '0'}">selected</c:if>>请选择商户类型</option>
 		         <c:forEach items="${merchantTypeList}" var="type" >
-			         <option value="${type.merchantType}"  >请选择商户类型</option>
+			         <option value="${type.merchantType}"  >${type.merchantType}</option>
 		         </c:forEach>
 		      </select>
 	         

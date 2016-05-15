@@ -32,7 +32,7 @@ public class PriceInfo implements Serializable{
 	private Float balance;
 	
 	/**
-	 * 餐盒价格
+	 * 餐具价格
 	 */
 	private Float boxPrice;
 	

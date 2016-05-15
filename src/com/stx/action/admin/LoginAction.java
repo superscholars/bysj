@@ -214,31 +214,6 @@ public class LoginAction extends ActionSupport implements ModelDriven<User> {
 		request.setAttribute("detailVo", detailVo);
 		return "detail";
 	}
-	
-	/**
-	 * 跳转至商户注册页面
-	 * 
-	 * @return
-	 */
-	public String register() {
-		return "register";
-	}
-
-	/**
-	 * 执行注册操作
-	 * 
-	 * @return
-	 */
-	public String doRegist() {
-		HttpServletRequest request = ServletActionContext.getRequest();
-		this.user.setHeadPath("head.jpg");
-		String reason = userService.registMerchantUser(user, password2);
-		if (reason != null) {
-			request.setAttribute("err", reason);
-			return "register";
-		}
-		return "index";
-	}
 
 	/**
 	 * 退出登录

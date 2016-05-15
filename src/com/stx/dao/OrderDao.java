@@ -165,7 +165,7 @@ public class OrderDao extends BaseDao{
 				if(CollectionUtils.isEmpty(users)){
 					return null;
 				}
-				sb.append(" AND userId = " + searchValue);
+				sb.append(" AND userId = " + users.get(0).getId());
 				break;
 				
 			}
@@ -176,6 +176,8 @@ public class OrderDao extends BaseDao{
 		if(endDate != null){
 			sb.append(" AND createTime <= " + endDate);
 		}
+		
+		sb.append(" ORDER BY id DESC");
 		
 		List<Order> orderList = (List<Order>) session.createQuery(sb.toString()).list();
 		if(CollectionUtils.isEmpty(orderList)){
