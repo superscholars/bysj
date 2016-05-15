@@ -20,10 +20,9 @@
 			<h1>随便美餐</h1>
 			
 			<form id="loginForm" action="${ctx}/user/user_doLogin.action" method="post">
-				<input type="text" name="loginName" placeholder="loginName">
-				<input type="password"  name="password" placeholder="password">
-				<input type="submit" id="login-button" value="登陆">
-				<!-- <Button type="submit" id="login-button" >登录</Button><br> -->
+				<input type="text" name="loginName" placeholder="请输入用户名">
+				<input type="password"  name="password" placeholder="请输入密码">
+				<input type="submit" id="login-button" value="登录">
 				<a  href="${ctx}/user/user_register.action">注册用户</a>
 			</form>
 		</div>

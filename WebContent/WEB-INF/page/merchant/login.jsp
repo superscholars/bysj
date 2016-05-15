@@ -22,8 +22,7 @@
 			<form id="loginForm" action="${ctx}/merchant/merchant_doLogin.action" method="post">
 				<input type="text" name="loginName" placeholder="loginName">
 				<input type="password"  name="password" placeholder="password">
-				<input type="submit" id="login-button" value="登陆">
-				<!-- <Button type="submit" id="login-button" >登录</Button><br> -->
+				<input type="submit" id="login-button" value="登录">
 				<a  href="${ctx}/merchant/merchant_register.action">注册用户</a>
 			</form>
 		</div>

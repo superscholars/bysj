@@ -22,7 +22,7 @@
 			<form id="loginForm" action="${ctx}/admin/admin_doLogin.action" method="post">
 				<input type="text" name="loginName" placeholder="loginName">
 				<input type="password"  name="password" placeholder="password">
-				<input type="submit" id="login-button" value="登陆">
+				<input type="submit" id="login-button" value="登录">
 			</form>
 		</div>
 		<ul class="bg-bubbles">

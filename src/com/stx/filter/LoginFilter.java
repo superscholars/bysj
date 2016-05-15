@@ -45,11 +45,31 @@ public class LoginFilter implements javax.servlet.Filter{
 		}
 		HttpSession session = request.getSession();
 		if(session == null){
-			request.getRequestDispatcher("/user/user_login.action").forward(req, res);
+			switch(url.substring(0,5)){
+			case "/user":
+				request.getRequestDispatcher("/user/user_login.action").forward(req, res);
+				break;
+			case "/admi":
+				request.getRequestDispatcher("/admin/admin_login.action").forward(req, res);
+				break;
+			case "/merc":
+				request.getRequestDispatcher("/merchant/merchant_login.action").forward(req, res);
+				break;
+			}
 		}
 		Object obj = session.getAttribute(Constants.USER);
 		if(obj==null){
-			request.getRequestDispatcher("/user/user_login.action").forward(req, res);
+			switch(url.substring(0,5)){
+			case "/user":
+				request.getRequestDispatcher("/user/user_login.action").forward(req, res);
+				break;
+			case "/admi":
+				request.getRequestDispatcher("/admin/admin_login.action").forward(req, res);
+				break;
+			case "/merc":
+				request.getRequestDispatcher("/merchant/merchant_login.action").forward(req, res);
+				break;
+			}
 		}
 		chain.doFilter(req, res);
 		return;
