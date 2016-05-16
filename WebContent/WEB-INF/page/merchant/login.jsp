@@ -15,6 +15,12 @@
 </head>
 <body>
 <div class="htmleaf-container">
+<c:if test="${!empty err}">
+			<div style="width:30%;margin: 0 auto;margin-top:160px;position:relative;z-index:999;" class="alert alert-danger">
+						<a class="close" data-dismiss="alert" href="#" aria-hidden="true">
+							&times; </a><p style = "text-align:center"> ${err}</p>
+			</div>
+		</c:if>
 	<div class="wrapper">
 		<div class="container">
 			<h1>随便美餐-商户入口</h1>
@@ -23,7 +29,7 @@
 				<input type="text" name="loginName" placeholder="loginName">
 				<input type="password"  name="password" placeholder="password">
 				<input type="submit" id="login-button" value="登录">
-				<a  href="${ctx}/merchant/merchant_register.action">注册用户</a>
+				<a  href="${ctx}/merchant/merchant_register.action">注册商户</a>
 			</form>
 		</div>
 		<ul class="bg-bubbles">
@@ -51,11 +57,6 @@ $('#login-button').click(function (event) {
 	window.load=validate();
 });
 </script>
-<c:if test="${!empty err}">
-	<div style="text-align:center;margin:50px 0; font:normal 14px/24px 'MicroSoft YaHei';color:#000000">
-	<p style="font-size: 18px;color: #bb1111;">${err}</p>
-	</div>
-</c:if>
 
 </body>
 </html>

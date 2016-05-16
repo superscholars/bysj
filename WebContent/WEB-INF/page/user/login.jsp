@@ -8,13 +8,18 @@
 <meta charset="UTF-8">
 <title>随便美餐-用户</title>
 <link rel="stylesheet" type="text/css" href="${ctx}/css/styles.css">
-<link href="${ctx}/bootstrap/css/bootstrap.min.css"
-	rel="stylesheet">
+<link href="${ctx}/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
 <script src="${ctx}/js/jquery-2.2.2.min.js"></script>
 <script src="${ctx}/bootstrap/js/bootstrap.min.js"  type="text/javascript"></script>
 </head>
 <body>
 <div class="htmleaf-container">
+		<c:if test="${!empty err}">
+			<div style="width:30%;margin: 0 auto;margin-top:160px;position:relative;z-index:999;" class="alert alert-danger">
+						<a class="close" data-dismiss="alert" href="#" aria-hidden="true">
+							&times; </a><p style = "text-align:center"> ${err}</p>
+			</div>
+		</c:if>
 	<div class="wrapper">
 		<div class="container">
 			<h1>随便美餐</h1>
@@ -53,7 +58,7 @@ $('#login-button').click(function (event) {
 </script>
 <c:if test="${!empty err}">
 	<div style="text-align:center;margin:50px 0; font:normal 14px/24px 'MicroSoft YaHei';color:#000000">
-	<p style="font-size: 18px;color: #bb1111;">${err}</p>
+	
 	</div>
 </c:if>
 

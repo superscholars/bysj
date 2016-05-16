@@ -15,6 +15,12 @@
 </head>
 <body>
 <div class="htmleaf-container">
+<c:if test="${!empty err}">
+			<div style="width:30%;margin: 0 auto;margin-top:160px;position:relative;z-index:999;" class="alert alert-danger">
+						<a class="close" data-dismiss="alert" href="#" aria-hidden="true">
+							&times; </a><p style = "text-align:center"> ${err}</p>
+			</div>
+		</c:if>
 	<div class="wrapper">
 		<div class="container">
 			<h1>随便美餐-管理员入口</h1>
@@ -50,11 +56,6 @@ $('#login-button').click(function (event) {
 	window.load=validate();
 });
 </script>
-<c:if test="${!empty err}">
-	<div style="text-align:center;margin:50px 0; font:normal 14px/24px 'MicroSoft YaHei';color:#000000">
-	<p style="font-size: 18px;color: #bb1111;">${err}</p>
-	</div>
-</c:if>
 
 </body>
 </html>

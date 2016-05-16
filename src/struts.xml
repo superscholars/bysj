@@ -18,7 +18,6 @@
 		<action name="merchant_*" class="merchantLoginAction" method="{1}">
 			<result name="index">/WEB-INF/page/merchant/login.jsp</result>
 			<result name="register">/WEB-INF/page/merchant/register.jsp</result>
-			<!-- <result name="home">/WEB-INF/page/merchant/orders.jsp</result> -->
 			<result name="setting">/WEB-INF/page/merchant/setUser.jsp</result>
 		</action>
 		

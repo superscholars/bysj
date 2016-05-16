@@ -159,15 +159,7 @@ public class LoginAction extends ActionSupport implements ModelDriven<User> {
 		request.setAttribute(Constants.PAGE, "order");
 		User loginContext = (User) request.getSession().getAttribute(Constants.USER);
 		Merchant merchant = merchantService.getMerchantByUserId(loginContext.getId()); 
-		//查询未接订单 status = WAITTING
-		List<Order> wList = orderService.queryByMerchantAndStatus(merchant.getId(), 0, Constants.STATUS_WAITTING);
-		//查询处理中订单 status > WAITTING AND status < FINISH
-		List<Order> cList = orderService.queryByMerchantAndStatus(merchant.getId(), Constants.STATUS_WAITTING, Constants.STATUS_FINISH-1);
-		//查询完成的订单 status = FINISH
-		List<Order> fList = orderService.queryByMerchantAndStatus(merchant.getId(), Constants.STATUS_ON_WAY, Constants.STATUS_CANCEL);
-		request.setAttribute("waitting", wList);
-		request.setAttribute("doing", cList);
-		request.setAttribute("finish", fList);
+		orderCondition(request,merchant.getId());
 		return "home";
 	}
 
@@ -193,7 +185,7 @@ public class LoginAction extends ActionSupport implements ModelDriven<User> {
 			return "index";
 		}
 		if(currentUser.getLoginSwitch() == Constants.LOGIN_SWITCH_CLOSE){
-			request.setAttribute("err", "您已经被紧闭，请联系管理员。");
+			request.setAttribute("err", "您已经被禁闭，请联系管理员。");
 			return "index";
 		}
 		/** 登陆成功的话，将用户信息放入session **/
