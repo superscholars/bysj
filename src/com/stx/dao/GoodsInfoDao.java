@@ -7,7 +7,6 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.stx.entity.order.GoodsInfo;
-import com.stx.entity.order.Order;
 import com.stx.util.CollectionUtils;
 
 /**

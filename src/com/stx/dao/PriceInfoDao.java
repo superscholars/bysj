@@ -6,7 +6,6 @@ import org.hibernate.Session;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.stx.entity.order.Order;
 import com.stx.entity.order.PriceInfo;
 import com.stx.util.CollectionUtils;
 
@@ -15,7 +14,7 @@ import com.stx.util.CollectionUtils;
  * @author gzzdsg
  * 2016年3月24日
  */
-@Repository
+@Repository	
 public class PriceInfoDao extends BaseDao{
 
 	/**
