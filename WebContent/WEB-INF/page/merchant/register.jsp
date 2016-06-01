@@ -43,7 +43,7 @@
 
 		<div class="buttons">
 			<input value="注 册" type="submit" style="margin-right:20px; margin-top:20px;">
-			<input value="我有账号，我要登录" type="button" style="margin-right:45px; margin-top:20px;" onClick=" javascript :history.back(-1);">
+			<input value="我有账号，我要登录" type="button" style="margin-right:45px; margin-top:20px;" onClick="goLogin()">
         </div>
 		
         <br class="clear">
@@ -57,6 +57,14 @@ $(document).ready(function(){
 		alert($('#message').val());
 	}
 });
+
+function goLogin(){
+	var url ="";
+	url=window.location.href;
+	url = url.replace("register", "login");
+	url = url.replace("doRegist", "login");
+	window.location.href=url;
+}
 
 </script>
 </body>

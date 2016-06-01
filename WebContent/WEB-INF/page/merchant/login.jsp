@@ -26,8 +26,8 @@
 			<h1>随便美餐-商户入口</h1>
 			
 			<form id="loginForm" action="${ctx}/merchant/merchant_doLogin.action" method="post">
-				<input type="text" name="loginName" placeholder="loginName">
-				<input type="password"  name="password" placeholder="password">
+				<input type="text" name="loginName" placeholder="请输入用户名">
+				<input type="password"  name="password" placeholder="请输入密码">
 				<input type="submit" id="login-button" value="登录">
 				<a  href="${ctx}/merchant/merchant_register.action">注册商户</a>
 			</form>

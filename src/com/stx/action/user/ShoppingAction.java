@@ -125,7 +125,7 @@ public class ShoppingAction extends ActionSupport implements ModelDriven<Address
 		/** 删除购物车中的指定的商品 **/
 		List<Goods> goodsList = (List<Goods>) shopCar.get(Constants.GOODS_LIST);
 		for(Goods goods : goodsList){
-			if(goods.getId()==goodsId){
+			if(goods.getId().equals(goodsId)){
 				goodsList.remove(goods);
 				break;
 			}

@@ -179,7 +179,7 @@ public class OperateAction extends ActionSupport implements ModelDriven<User>{
 		if(punishTime == 0){
 			request.setAttribute("success", "该商家未被禁闭");
 		}else{
-			request.setAttribute("err", "商家还有"+punishTime+"消失解禁");
+			request.setAttribute("err", "商家还有"+punishTime+"小时解禁。");
 		}
 		return request;
 	}

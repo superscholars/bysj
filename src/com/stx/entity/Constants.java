@@ -58,7 +58,9 @@ public class Constants {
 	public static final String GOU = "shoppingCar"; 
 	
 	/**
-	 * 订单状态 0.未支付。10.待接单。20.商家已接单，准备中。30.菜品已备好。40.在路上。50.完成订单。60.取消订单
+	 * 订单状态
+	 *  0.未支付。10.待接单。20.商家已接单，准备中。
+	 *  30.菜品已备好。40.在路上。50.完成订单。60.取消订单
 	 */
 	public static final int STATUS_NOTPAY = 0;
 	public static final int STATUS_WAITTING = 10;
