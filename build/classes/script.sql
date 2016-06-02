@@ -100,6 +100,7 @@ create table merchant_comment(
 	comment_content varchar(255) comment '评论内容',
 	create_time datetime comment '评论时间'
 )ENGINE=InnoDB DEFAULT CHARSET=utf8 comment '商户评论表'; 
+
 --==================================订单================================
 drop table if exists w_order;
 create table w_order(

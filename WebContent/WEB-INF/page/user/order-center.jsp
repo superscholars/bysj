@@ -91,7 +91,7 @@
 										<c:if test="${orderVo.order.eatType eq 2}">
 											<c:if test="${orderVo.order.status eq 30}">
 												<div class="col-md-3">
-													<a class="btn btn-success" href="${ctx}/user/order_commentOrder.action?id=${orderVo.order.id}">确认收货</a>
+													<a class="btn btn-success" href="${ctx}/user/order_commentOrder.action?id=${orderVo.order.id}">完成订单</a>
 												</div>
 											</c:if>
 										</c:if>
